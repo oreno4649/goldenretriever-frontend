@@ -27,4 +27,4 @@ jobs:
       - name: Service nginx restart
         env:
           PW: ${{ secrets.YAMASHITA_PW }}
-        run: echo $PW | sudo -S systemctl stop nginx
+        run: echo $PW | sudo -S systemctl restart nginx
