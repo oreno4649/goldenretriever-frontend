@@ -21,6 +21,10 @@ jobs:
       - name: Run build
         run: yarn build
       - name: Replace code
-        run: echo {{ $secrets.YAMASHITA_PW }} | sudo -S rm -rf /var/www/sumo-frontend; echo {{ $secrets.YAMASHITA_PW }} | sudo -S cp ./../sumo-frontend /var/www/
+        env:
+          PW: ${{ secrets.YAMASHITA_PW }}
+        run: echo $PW | sudo -S rm -rf /var/www/sumo-frontend; echo $PW | sudo -S cp ./../sumo-frontend /var/www/
       - name: Service nginx restart
-        run: echo {{ $secrets.YAMASHITA_PW }} | sudo -S systemctl stop nginx
+        env:
+          PW: ${{ secrets.YAMASHITA_PW }}
+        run: echo $PW | sudo -S systemctl stop nginx
