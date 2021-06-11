@@ -23,7 +23,7 @@ jobs:
       - name: Replace code
         env:
           PW: ${{ secrets.YAMASHITA_PW }}
-        run: echo $PW | sudo -S rm -rf /var/www/sumo-frontend; echo $PW | sudo -S cp ./../sumo-frontend /var/www/
+        run: echo $PW | sudo -S rm -rf /var/www/sumo-frontend; echo $PW | sudo -S cp -rp ./ /var/www/sumo-frontend
       - name: Service nginx restart
         env:
           PW: ${{ secrets.YAMASHITA_PW }}
