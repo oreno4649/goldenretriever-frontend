@@ -1,0 +1,24 @@
+name: Deploy development environment
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  deploy:
+    runs-on: [self-hosted, goldenretriever-dev]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Node
+        uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 14.x
+      - name: Install dependencies
+        run: yarn install
+      - name: Run build
+        run: yarn build
+      - name: Replace code
+        run: rm -rf /var/www/sumo-frontend;cp ./../sumo-frontend /var/www/
