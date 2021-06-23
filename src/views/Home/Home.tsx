@@ -4,7 +4,6 @@ import { Heading, Text, BaseLayout } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
-import SwapCard from 'views/Home/components/SwapCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 
