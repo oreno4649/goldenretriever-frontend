@@ -67,8 +67,7 @@ const Home: React.FC = () => {
         <Image src={`/images/well.png`} alt={tokenSymbol} />
           {t('PancakeSwap')}
         </Heading>
-        <Text>{t('The Golden retriever platform is a community-supported platform.People all over the world will love Golden Retriever!
-')}</Text>
+        <Text>{t('The Golden retriever platform is a community-supported platform.People all over the world will love Golden Retriever!')}</Text>
       </Hero>
       <div>
         <CTACards>
