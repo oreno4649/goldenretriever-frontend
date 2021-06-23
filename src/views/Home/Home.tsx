@@ -4,10 +4,20 @@ import { Heading, Text, BaseLayout } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
+import SwapCard from 'views/Home/components/SwapCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 
+const Page = styled.div`
+  align-items: center;
+  background-image: url('/images/city.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
 
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding-top: 0;
+  }
+`
 const Hero = styled.div`
   align-items: center;
   display: flex;
@@ -60,6 +70,7 @@ const Home: React.FC = () => {
       </Hero>
       <div>
         <CTACards>
+          <SwapCard />
           <EarnAPRCard />
           <EarnAssetCard />
           <TotalValueLockedCard />
