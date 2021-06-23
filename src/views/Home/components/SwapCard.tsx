@@ -48,6 +48,8 @@ const SwapCard = () => {
     return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
   }, [cakePrice, farmsLP, prices])
 
+  const Homebtns = styled.div`background-color: green;`;
+
   return (
     <StyledFarmStakingCard>
       <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
@@ -59,7 +61,9 @@ const SwapCard = () => {
             <Heading color="contrast" scale="lg">
             Exchange tokens
             </Heading>
-            <ArrowForwardIcon mt={30} color="primary" />
+            <Homebtns>
+            <div>Swap</div>
+            </Homebtns>
           </Flex>
         </CardBody>
       </NavLink>
