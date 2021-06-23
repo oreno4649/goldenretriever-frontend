@@ -4,18 +4,24 @@ import { Heading, Text, BaseLayout } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
-import CakeStats from 'views/Home/components/CakeStats'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
+import SwapCard from 'views/Home/components/SwapCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
 import PredictionPromotionCard from './components/PredictionPromotionCard'
-import WinCard from './components/WinCard'
 
+const Page = styled.div`
+  align-items: center;
+  background-image: url('/images/city.png');
+  background-repeat: no-repeat;
+  background-position: bottom center;
+
+  ${({ theme }) => theme.mediaQueries.lg} {
+    padding-top: 0;
+  }
+`
 const Hero = styled.div`
   align-items: center;
-  background-image: url('/images/pan-bg-mobile.svg');
-  background-repeat: no-repeat;
-  background-position: top center;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -25,8 +31,6 @@ const Hero = styled.div`
   text-align: center;
 
   ${({ theme }) => theme.mediaQueries.lg} {
-    background-image: url('/images/pan-bg2.svg'), url('/images/pan-bg.svg');
-    background-position: left center, right center;
     height: 165px;
     padding-top: 0;
   }
@@ -91,9 +95,11 @@ const Home: React.FC = () => {
     <Page>
       <Hero>
         <Heading as="h1" scale="xl" mb="24px" color="secondary">
-          {t('PancakeSwap')}
+        <div>
+        <img src={`/images/well.png`} alt="Logo" />;
+        <Text>{t('The Golden retriever platform is a community-supported platform.People all over the world will love Golden Retriever!')}</Text>
+        </div>
         </Heading>
-        <Text>{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
         <Cards>
@@ -101,6 +107,7 @@ const Home: React.FC = () => {
           <PredictionPromotionCard />
         </Cards>
         <CTACards>
+          <SwapCard />
           <EarnAPRCard />
           <EarnAssetCard />
           <TotalValueLockedCard />
