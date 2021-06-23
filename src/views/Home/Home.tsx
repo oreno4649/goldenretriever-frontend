@@ -88,19 +88,11 @@ const Home: React.FC = () => {
         <Text>{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
-        <Cards>
-          <FarmStakingCard />
-          <LotteryCard />
-        </Cards>
         <CTACards>
           <EarnAPRCard />
           <EarnAssetCard />
-          <WinCard />
-        </CTACards>
-        <Cards>
-          <CakeStats />
           <TotalValueLockedCard />
-        </Cards>
+        </CTACards>
       </div>
     </Page>
   )
