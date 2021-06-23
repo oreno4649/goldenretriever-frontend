@@ -10,6 +10,7 @@ export interface Token {
   address?: Address
   decimals?: number
   projectLink?: string
+  busdPrice?: string
 }
 
 export enum PoolIds {
@@ -37,7 +38,7 @@ export interface Ifo {
   articleUrl: string
   campaignId: string
   tokenOfferingPrice: number
-  isV1: boolean
+  version: number
   [PoolIds.poolBasic]?: IfoPoolInfo
   [PoolIds.poolUnlimited]: IfoPoolInfo
 }
@@ -68,7 +69,6 @@ export interface PoolConfig {
   sousId: number
   earningToken: Token
   stakingToken: Token
-  stakingLimit?: number
   contractAddress: Address
   poolCategory: PoolCategory
   tokenPerBlock: string

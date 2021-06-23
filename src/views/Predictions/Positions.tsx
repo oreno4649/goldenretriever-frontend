@@ -30,7 +30,7 @@ const Positions: React.FC = () => {
   useOnNextRound()
 
   return (
-    <Box overflowX="hidden" overflowY="auto">
+    <Box overflow="hidden">
       <Menu />
       <StyledSwiper>
         <Swiper
@@ -41,6 +41,8 @@ const Positions: React.FC = () => {
           freeMode
           freeModeSticky
           centeredSlides
+          freeModeMomentumRatio={0.25}
+          freeModeMomentumVelocityRatio={0.5}
           mousewheel
           keyboard
           resizeObserver

@@ -4,12 +4,12 @@ import { Heading, Text, BaseLayout } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
 import Page from 'components/layout/Page'
 import FarmStakingCard from 'views/Home/components/FarmStakingCard'
-import LotteryCard from 'views/Home/components/LotteryCard'
 import CakeStats from 'views/Home/components/CakeStats'
 import TotalValueLockedCard from 'views/Home/components/TotalValueLockedCard'
 import EarnAPRCard from 'views/Home/components/EarnAPRCard'
 import EarnAssetCard from 'views/Home/components/EarnAssetCard'
-import WinCard from 'views/Home/components/WinCard'
+import PredictionPromotionCard from './components/PredictionPromotionCard'
+import WinCard from './components/WinCard'
 
 const Hero = styled.div`
   align-items: center;
@@ -35,7 +35,8 @@ const Hero = styled.div`
 const Cards = styled(BaseLayout)`
   align-items: stretch;
   justify-content: stretch;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  grid-gap: 24px;
 
   & > div {
     grid-column: span 6;
@@ -49,6 +50,9 @@ const Cards = styled(BaseLayout)`
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: 32px;
+    grid-gap: 32px;
+
     & > div {
       grid-column: span 6;
     }
@@ -57,7 +61,8 @@ const Cards = styled(BaseLayout)`
 
 const CTACards = styled(BaseLayout)`
   align-items: start;
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  grid-gap: 24px;
 
   & > div {
     grid-column: span 6;
@@ -70,6 +75,9 @@ const CTACards = styled(BaseLayout)`
   }
 
   ${({ theme }) => theme.mediaQueries.lg} {
+    margin-bottom: 32px;
+    grid-gap: 32px;
+
     & > div {
       grid-column: span 4;
     }
@@ -88,6 +96,10 @@ const Home: React.FC = () => {
         <Text>{t('The #1 AMM and yield farm on Binance Smart Chain.')}</Text>
       </Hero>
       <div>
+        <Cards>
+          <FarmStakingCard />
+          <PredictionPromotionCard />
+        </Cards>
         <CTACards>
           <EarnAPRCard />
           <EarnAssetCard />
