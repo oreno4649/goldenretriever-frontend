@@ -68,9 +68,7 @@ const EarnAPRCard = () => {
           </Flex>
         </CardBody>
       </NavLink>
-    </StyledFarmStakingCard>
-
-    <StyledFarmStakingCard>
+    
       <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
         <CardBody>
           <Heading color="contrast" scale="lg">
