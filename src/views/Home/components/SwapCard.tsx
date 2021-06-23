@@ -50,7 +50,7 @@ const EarnAPRCard = () => {
     return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
   }, [cakePrice, farmsLP, prices])
 
-  const Button = styled.a`
+  const Divbutton = styled.a`
   /* This renders the buttons above... Edit me! */
   display: inline-block;
   border-radius: 3px;
@@ -63,8 +63,8 @@ const EarnAPRCard = () => {
 `
 
   return (
-    <StyledFarmStakingCard>
-      <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
+    <StyledSwapStakingCard>
+      <NavLink exact activeClassName="active" to="/swap" id="swap-apr-cta">
         <CardBody>
           <Heading color="contrast" scale="lg">
             Exchange
@@ -77,8 +77,8 @@ const EarnAPRCard = () => {
           </Flex>
         </CardBody>
       </NavLink>
-    </StyledFarmStakingCard>
+    </StyledSwapStakingCard>
   )
 }
 
-export default EarnAPRCard
+export default SwapCard
