@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'contexts/Localization'
 import BigNumber from 'bignumber.js'
 import { getFarmApr } from 'utils/apr'
-import { useFarms, usePriceCakeBusd, useGetApiPrices } from 'state/hooks'
+import { useFarms, usePriceCakeBusd, useGetLastOraclePrice } from 'state/hooks'
 import { getAddress } from 'utils/addressHelpers'
 
 const StyledFarmStakingCard = styled(Card)`
@@ -27,7 +27,7 @@ const StyledFarmStakingCard = styled(Card)`
 
 const SwapCard = () => {
   const { data: farmsLP } = useFarms()
-  const prices = useGetApiPrices()
+  const prices = useGetLastOraclePrice()
   const cakePrice = usePriceCakeBusd()
 
   const Homebtns = styled.div`background-color: green;`;

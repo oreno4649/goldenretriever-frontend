@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import poolsConfig from 'config/constants/pools'
-import sousChefABI from 'config/abi/sousChef.json'
+import sousChefABI from 'config/abi/sousChefV2.json'
 import cakeABI from 'config/abi/inu.json'
 import wbnbABI from 'config/abi/weth.json'
 import multicall from 'utils/multicall'
