@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import erc20 from 'config/abi/erc20.json'
-import masterchefABI from 'config/abi/masterchef.json'
+import masterchefABI from 'config/abi/mastertrainer.json'
 import multicall from 'utils/multicall'
 import { BIG_TEN } from 'utils/bigNumber'
 import { getAddress, getMasterChefAddress } from 'utils/addressHelpers'
