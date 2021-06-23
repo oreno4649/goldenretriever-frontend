@@ -55,23 +55,6 @@ const EarnAPRCard = () => {
       <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
         <CardBody>
           <Heading color="contrast" scale="lg">
-           Exchange
-          </Heading>
-          <CardMidContent color="#7645d9">
-            {highestApr ? `${highestApr}% ${t('APR')}` : <Skeleton animation="pulse" variant="rect" height="44px" />}
-          </CardMidContent>
-          <Flex justifyContent="space-between">
-            <Heading color="contrast" scale="lg">
-            Exchange tokens
-            </Heading>
-            <ArrowForwardIcon mt={30} color="primary" />
-          </Flex>
-        </CardBody>
-      </NavLink>
-    
-      <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
-        <CardBody>
-          <Heading color="contrast" scale="lg">
             Earn up to
           </Heading>
           <CardMidContent color="#7645d9">
