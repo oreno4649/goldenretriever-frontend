@@ -2,8 +2,8 @@
 	{
 		"inputs": [
 			{
-				"internalType": "contract GoldenRetrieverToken",
-				"name": "_inu",
+				"internalType": "contract CakeToken",
+				"name": "_cake",
 				"type": "address"
 			}
 		],
@@ -241,6 +241,19 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "cake",
+		"outputs": [
+			{
+				"internalType": "contract CakeToken",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -457,19 +470,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "inu",
-		"outputs": [
-			{
-				"internalType": "contract GoldenRetrieverToken",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -590,7 +590,7 @@
 				"type": "uint256"
 			}
 		],
-		"name": "safeInuTransfer",
+		"name": "safeCakeTransfer",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

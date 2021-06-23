@@ -87,7 +87,7 @@ const Home: React.FC = () => {
         <Heading as="h1" scale="xl" mb="24px" color="secondary">
         <div>
         <img src="public/images/well.png" alt="Logo" />;
-        <Text>{t('The Golden retriever platform is a community-supported platform.People all over the world will love Golden Retriever!')}</Text>
+        <Text>The Golden retriever platform is a community-supported platform.People all over the world will love Golden Retriever!</Text>
         </div>
         </Heading>
       </Hero>

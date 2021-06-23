@@ -2,12 +2,12 @@
 	{
 		"inputs": [
 			{
-				"internalType": "contract GoldenRetrieverToken",
-				"name": "_inu",
+				"internalType": "contract CakeToken",
+				"name": "_cake",
 				"type": "address"
 			},
 			{
-				"internalType": "contract DogCafe",
+				"internalType": "contract SyrupBar",
 				"name": "_syrup",
 				"type": "address"
 			},
@@ -18,7 +18,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "_inuPerBlock",
+				"name": "_cakePerBlock",
 				"type": "uint256"
 			},
 			{
@@ -161,6 +161,32 @@
 		"type": "function"
 	},
 	{
+		"inputs": [],
+		"name": "cake",
+		"outputs": [
+			{
+				"internalType": "contract CakeToken",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "cakePerBlock",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -255,32 +281,6 @@
 		"type": "function"
 	},
 	{
-		"inputs": [],
-		"name": "inu",
-		"outputs": [
-			{
-				"internalType": "contract GoldenRetrieverToken",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "inuPerBlock",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
 		"inputs": [
 			{
 				"internalType": "uint256",
@@ -318,7 +318,7 @@
 		"name": "migrator",
 		"outputs": [
 			{
-				"internalType": "contract IMigratorTrainer",
+				"internalType": "contract IMigratorChef",
 				"name": "",
 				"type": "address"
 			}
@@ -352,7 +352,7 @@
 				"type": "address"
 			}
 		],
-		"name": "pendingInu",
+		"name": "pendingCake",
 		"outputs": [
 			{
 				"internalType": "uint256",
@@ -390,7 +390,7 @@
 			},
 			{
 				"internalType": "uint256",
-				"name": "accInuPerShare",
+				"name": "accCakePerShare",
 				"type": "uint256"
 			}
 		],
@@ -443,7 +443,7 @@
 	{
 		"inputs": [
 			{
-				"internalType": "contract IMigratorTrainer",
+				"internalType": "contract IMigratorChef",
 				"name": "_migrator",
 				"type": "address"
 			}
@@ -471,7 +471,7 @@
 		"name": "syrup",
 		"outputs": [
 			{
-				"internalType": "contract DogCafe",
+				"internalType": "contract SyrupBar",
 				"name": "",
 				"type": "address"
 			}
