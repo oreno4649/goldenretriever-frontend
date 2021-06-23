@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react'
 import styled from 'styled-components'
-import { Heading, Card, CardBody, Flex, ArrowForwardIcon, Skeleton } from '@pancakeswap/uikit'
+import { Heading, Card, CardBody, Flex } from '@pancakeswap/uikit'
 import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
 import { useTranslation } from 'contexts/Localization'
@@ -26,27 +26,9 @@ const StyledFarmStakingCard = styled(Card)`
 `
 
 const SwapCard = () => {
-  const { t } = useTranslation()
   const { data: farmsLP } = useFarms()
   const prices = useGetApiPrices()
   const cakePrice = usePriceCakeBusd()
-
-  const highestApr = useMemo(() => {
-    const aprs = farmsLP
-      // Filter inactive farms, because their theoretical APR is super high. In practice, it's 0.
-      .filter((farm) => farm.pid !== 0 && farm.multiplier !== '0X')
-      .map((farm) => {
-        if (farm.lpTotalInQuoteToken && prices) {
-          const quoteTokenPriceUsd = prices[getAddress(farm.quoteToken.address).toLowerCase()]
-          const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(quoteTokenPriceUsd)
-          return getFarmApr(farm.poolWeight, cakePrice, totalLiquidity)
-        }
-        return null
-      })
-
-    const maxApr = max(aprs)
-    return maxApr?.toLocaleString('en-US', { maximumFractionDigits: 2 })
-  }, [cakePrice, farmsLP, prices])
 
   const Homebtns = styled.div`background-color: green;`;
 
