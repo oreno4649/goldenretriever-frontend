@@ -2,12 +2,11 @@ import styled from 'styled-components'
 
 export const ActionContainer = styled.div`
   padding: 16px;
-  border: 2px solid ${({ theme }) => theme.colors.input};
-  border-radius: 16px;
+  border-radius: 6px;
   flex-grow: 1;
   flex-basis: 0;
   margin-bottom: 16px;
-
+  background: rgba(0, 0, 0, 0.19);
   ${({ theme }) => theme.mediaQueries.sm} {
     margin-left: 12px;
     margin-right: 12px;
@@ -25,6 +24,9 @@ export const ActionContainer = styled.div`
 
 export const ActionTitles = styled.div`
   display: flex;
+  div {
+    color: white;
+  }
 `
 
 export const ActionContent = styled.div`
@@ -34,6 +36,6 @@ export const ActionContent = styled.div`
 `
 export const Earned = styled.div`
   font-weight: 600;
-  font-size: 20px;
-  color: ${({ theme }) => theme.colors.text};
+  font-size: 32px;
+  color: white;
 `

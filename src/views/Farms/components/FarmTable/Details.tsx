@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ChevronDownIcon, useMatchBreakpoints } from '@pancakeswap/uikit'
-import { useTranslation } from 'contexts/Localization'
+import { ChevronDownIcon } from '@pancakeswap/uikit'
 
 interface DetailsProps {
   actionPanelToggled: boolean
@@ -12,7 +11,7 @@ const Container = styled.div`
   width: 100%;
   justify-content: flex-end;
   padding-right: 8px;
-  color: ${({ theme }) => theme.colors.primary};
+  color: white;
 
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-right: 0px;
@@ -22,16 +21,13 @@ const Container = styled.div`
 const ArrowIcon = styled(ChevronDownIcon)<{ toggled: boolean }>`
   transform: ${({ toggled }) => (toggled ? 'rotate(180deg)' : 'rotate(0)')};
   height: 20px;
+  fill: rgba(255, 255, 255, 0.54);
 `
 
 const Details: React.FC<DetailsProps> = ({ actionPanelToggled }) => {
-  const { t } = useTranslation()
-  const { isXl } = useMatchBreakpoints()
-  const isMobile = !isXl
 
   return (
     <Container>
-      {!isMobile && t('Details')}
       <ArrowIcon color="primary" toggled={actionPanelToggled} />
     </Container>
   )

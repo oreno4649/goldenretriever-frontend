@@ -1,20 +1,26 @@
 import React from 'react'
-import { Tag, VerifiedIcon, CommunityIcon, BinanceIcon, RefreshIcon, AutoRenewIcon, TagProps } from '@pancakeswap/uikit'
+import { Tag, BinanceIcon, RefreshIcon, AutoRenewIcon, TagProps } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
+import styled from "styled-components";
+
+const GRTag = styled(Tag)`
+  color: white;
+  border-color: white;
+`
 
 const CoreTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <Tag variant="secondary" outline startIcon={<VerifiedIcon width="18px" color="secondary" mr="4px" />} {...props}>
+    <GRTag variant="primary" outline {...props}>
       {t('Core')}
-    </Tag>
+    </GRTag>
   )
 }
 
 const CommunityTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <Tag variant="failure" outline startIcon={<CommunityIcon width="18px" color="failure" mr="4px" />} {...props}>
+    <Tag variant="failure" outline {...props}>
       {t('Community')}
     </Tag>
   )

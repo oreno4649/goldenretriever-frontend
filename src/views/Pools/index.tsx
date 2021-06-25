@@ -236,9 +236,6 @@ const Pools: React.FC = () => {
           />
           <SearchSortContainer>
             <Flex flexDirection="column" width="50%">
-              <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
-                {t('Sort by')}
-              </Text>
               <ControlStretch>
                 <Select
                   options={[
@@ -264,9 +261,6 @@ const Pools: React.FC = () => {
               </ControlStretch>
             </Flex>
             <Flex flexDirection="column" width="50%">
-              <Text fontSize="12px" bold color="textSubtle" textTransform="uppercase">
-                {t('Search')}
-              </Text>
               <ControlStretch>
                 <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
               </ControlStretch>

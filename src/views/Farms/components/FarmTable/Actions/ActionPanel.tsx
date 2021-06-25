@@ -50,7 +50,7 @@ const Container = styled.div<{ expanded }>`
           ${collapseAnimation} 300ms linear forwards
         `};
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.background};
+  background: linear-gradient(94.17deg, #023BCF 0%, #9600AE 73.96%);
   display: flex;
   width: 100%;
   flex-direction: column-reverse;
@@ -63,7 +63,12 @@ const Container = styled.div<{ expanded }>`
 `
 
 const StyledLinkExternal = styled(LinkExternal)`
+  font-color: #90E4FF;
+  font-size: 12px;
   font-weight: 400;
+  svg {
+    display: none;
+  }
 `
 
 const StakeContainer = styled.div`

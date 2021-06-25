@@ -1,7 +1,18 @@
 import React from 'react'
 import { Button, useWalletModal } from '@pancakeswap/uikit'
+import styled from "styled-components";
 import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
+
+const GRButton = styled(Button)`
+  color: white;
+  background: #000000;
+  box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+  border-radius: 6px;
+  border: 2px;
+  border-image-slice: 1;
+  border-image: linear-gradient(94.17deg, #0947E7 0%, #CF00F0 73.96%);
+`
 
 const UnlockButton = (props) => {
   const { t } = useTranslation()
@@ -9,9 +20,9 @@ const UnlockButton = (props) => {
   const { onPresentConnectModal } = useWalletModal(login, logout)
 
   return (
-    <Button onClick={onPresentConnectModal} {...props}>
+    <GRButton onClick={onPresentConnectModal} {...props}>
       {t('Unlock Wallet')}
-    </Button>
+    </GRButton>
   )
 }
 

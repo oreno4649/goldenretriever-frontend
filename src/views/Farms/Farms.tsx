@@ -1,29 +1,40 @@
-import React, { useEffect, useCallback, useState, useMemo, useRef } from 'react'
-import { Route, useRouteMatch, useLocation } from 'react-router-dom'
+import React, {useEffect, useCallback, useState, useMemo, useRef} from 'react'
+import {Route, useRouteMatch, useLocation} from 'react-router-dom'
 import BigNumber from 'bignumber.js'
-import { useWeb3React } from '@web3-react/core'
-import { Image, Heading, RowType, Toggle, Text } from '@pancakeswap/uikit'
+import {useWeb3React} from '@web3-react/core'
+import {Image, Heading, RowType, Toggle, Text} from '@pancakeswap/uikit'
 import styled from 'styled-components'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
-import { useFarms, usePollFarmsData, usePriceCakeBusd } from 'state/hooks'
+import {useFarms, usePollFarmsData, usePriceCakeBusd} from 'state/hooks'
 import usePersistState from 'hooks/usePersistState'
-import { Farm } from 'state/types'
-import { useTranslation } from 'contexts/Localization'
-import { getBalanceNumber } from 'utils/formatBalance'
-import { getFarmApr } from 'utils/apr'
-import { orderBy } from 'lodash'
+import {Farm} from 'state/types'
+import {useTranslation} from 'contexts/Localization'
+import {getBalanceNumber} from 'utils/formatBalance'
+import {getFarmApr} from 'utils/apr'
+import {orderBy} from 'lodash'
 import isArchivedPid from 'utils/farmHelpers'
-import { latinise } from 'utils/latinise'
+import {latinise} from 'utils/latinise'
 import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
-import Select, { OptionProps } from 'components/Select/Select'
-import FarmCard, { FarmWithStakedValue } from './components/FarmCard/FarmCard'
+import Select, {OptionProps} from 'components/Select/Select'
+import FarmCard, {FarmWithStakedValue} from './components/FarmCard/FarmCard'
 import Table from './components/FarmTable/FarmTable'
 import FarmTabButtons from './components/FarmTabButtons'
-import { RowProps } from './components/FarmTable/Row'
-import ToggleView from './components/ToggleView/ToggleView'
-import { DesktopColumnSchema, ViewMode } from './components/types'
+import {RowProps} from './components/FarmTable/Row'
+import {DesktopColumnSchema, ViewMode} from './components/types'
+
+const Container = styled.div`
+  margin-right: 32px;
+  margin-left: 32px;
+`
+
+const GRPageHeader = styled(PageHeader)`
+  padding-top: 60px;
+`
+
+const GRStakedOnlyToggle = styled(Toggle)`
+`
 
 const ControlContainer = styled.div`
   display: flex;
@@ -35,7 +46,7 @@ const ControlContainer = styled.div`
   flex-direction: column;
   margin-bottom: 32px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({theme}) => theme.mediaQueries.sm} {
     flex-direction: row;
     flex-wrap: wrap;
     padding: 16px 32px;
@@ -50,12 +61,35 @@ const ToggleWrapper = styled.div`
 
   ${Text} {
     margin-left: 8px;
+    color: white;
+  }
+
+  div:first-child {
+    background: linear-gradient(94.17deg, #0947E7 0%, #CF00F0 73.96%);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.45);
+    border-radius: 13px;
   }
 `
 
 const LabelWrapper = styled.div`
-  > ${Text} {
-    font-size: 12px;
+  div:nth-child(1) {
+    background-color: #1E3484;
+    border-radius: 16px;
+    > div {
+      border: none;
+      background-color: #1E3484;
+      border-radius: 16px;
+      > div {
+        color: white;
+      }
+    }
+    > div > ul > li > div {
+      color: white;
+    }
+    > div > ul > li:hover {
+      border: none;
+      background-color: #1E3484;
+    }
   }
 `
 
@@ -65,7 +99,7 @@ const FilterContainer = styled.div`
   width: 100%;
   padding: 8px 0px;
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({theme}) => theme.mediaQueries.sm} {
     width: auto;
     padding: 0;
   }
@@ -82,7 +116,7 @@ const ViewControls = styled.div`
     padding: 8px 0px;
   }
 
-  ${({ theme }) => theme.mediaQueries.sm} {
+  ${({theme}) => theme.mediaQueries.sm} {
     justify-content: flex-start;
     width: auto;
 
@@ -100,14 +134,14 @@ const StyledImage = styled(Image)`
 const NUMBER_OF_FARMS_VISIBLE = 12
 
 const Farms: React.FC = () => {
-  const { path } = useRouteMatch()
-  const { pathname } = useLocation()
-  const { t } = useTranslation()
-  const { data: farmsLP, userDataLoaded } = useFarms()
+  const {path} = useRouteMatch()
+  const {pathname} = useLocation()
+  const {t} = useTranslation()
+  const {data: farmsLP, userDataLoaded} = useFarms()
   const cakePrice = usePriceCakeBusd()
   const [query, setQuery] = useState('')
-  const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'pancake_farm_view' })
-  const { account } = useWeb3React()
+  const [viewMode,] = usePersistState(ViewMode.TABLE, {localStorageKey: 'pancake_farm_view'})
+  const {account} = useWeb3React()
   const [sortOption, setSortOption] = useState('hot')
 
   const isArchived = pathname.includes('archived')
@@ -150,7 +184,7 @@ const Farms: React.FC = () => {
         const totalLiquidity = new BigNumber(farm.lpTotalInQuoteToken).times(farm.quoteToken.busdPrice)
         const apr = isActive ? getFarmApr(new BigNumber(farm.poolWeight), cakePrice, totalLiquidity) : 0
 
-        return { ...farm, apr, liquidity: totalLiquidity }
+        return {...farm, apr, liquidity: totalLiquidity}
       })
 
       if (query) {
@@ -245,14 +279,14 @@ const Farms: React.FC = () => {
   }, [farmsStakedMemoized, observerIsSet])
 
   const rowData = farmsStakedMemoized.map((farm) => {
-    const { token, quoteToken } = farm
+    const {token, quoteToken} = farm
     const tokenAddress = token.address
     const quoteTokenAddress = quoteToken.address
     const lpLabel = farm.lpSymbol && farm.lpSymbol.split(' ')[0].toUpperCase().replace('PANCAKE', '')
 
     const row: RowProps = {
       apr: {
-        value: farm.apr && farm.apr.toLocaleString('en-US', { maximumFractionDigits: 2 }),
+        value: farm.apr && farm.apr.toLocaleString('en-US', {maximumFractionDigits: 2}),
         multiplier: farm.multiplier,
         lpLabel,
         tokenAddress,
@@ -309,7 +343,7 @@ const Farms: React.FC = () => {
         sortable: column.sortable,
       }))
 
-      return <Table data={rowData} columns={columns} userDataReady={userDataReady} />
+      return <Table data={rowData} columns={columns} userDataReady={userDataReady}/>
     }
 
     return (
@@ -317,17 +351,17 @@ const Farms: React.FC = () => {
         <FlexLayout>
           <Route exact path={`${path}`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false} />
+              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed={false}/>
             ))}
           </Route>
           <Route exact path={`${path}/history`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed/>
             ))}
           </Route>
           <Route exact path={`${path}/archived`}>
             {farmsStakedMemoized.map((farm) => (
-              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed />
+              <FarmCard key={farm.pid} farm={farm} cakePrice={cakePrice} account={account} removed/>
             ))}
           </Route>
         </FlexLayout>
@@ -340,28 +374,26 @@ const Farms: React.FC = () => {
   }
 
   return (
-    <>
-      <PageHeader>
+    <Container>
+      <GRPageHeader>
         <Heading as="h1" scale="xl" color="#ffffff" mb="14px">
           {t('Farms')}
         </Heading>
-        <Heading scale="lg" color="text">
+        <Heading scale="lg" color="#ffffff">
           {t('Stake Liquidity Pool (LP) tokens to earn.')}
         </Heading>
-      </PageHeader>
+      </GRPageHeader>
       <Page>
         <ControlContainer>
           <ViewControls>
-            <ToggleView viewMode={viewMode} onToggle={(mode: ViewMode) => setViewMode(mode)} />
             <ToggleWrapper>
-              <Toggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm" />
+              <GRStakedOnlyToggle checked={stakedOnly} onChange={() => setStakedOnly(!stakedOnly)} scale="sm"/>
               <Text> {t('Staked only')}</Text>
             </ToggleWrapper>
-            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0} />
+            <FarmTabButtons hasStakeInFinishedFarms={stakedInactiveFarms.length > 0}/>
           </ViewControls>
           <FilterContainer>
             <LabelWrapper>
-              <Text textTransform="uppercase">{t('Sort by')}</Text>
               <Select
                 options={[
                   {
@@ -388,17 +420,16 @@ const Farms: React.FC = () => {
                 onChange={handleSortOptionChange}
               />
             </LabelWrapper>
-            <LabelWrapper style={{ marginLeft: 16 }}>
-              <Text textTransform="uppercase">{t('Search')}</Text>
-              <SearchInput onChange={handleChangeQuery} placeholder="Search Farms" />
+            <LabelWrapper style={{marginLeft: 16}}>
+              <SearchInput onChange={handleChangeQuery} placeholder="Search Farms"/>
             </LabelWrapper>
           </FilterContainer>
         </ControlContainer>
         {renderContent()}
-        <div ref={loadMoreRef} />
-        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103} />
+        <div ref={loadMoreRef}/>
+        <StyledImage src="/images/3dpan.png" alt="Pancake illustration" width={120} height={103}/>
       </Page>
-    </>
+    </Container>
   )
 }
 

@@ -22,6 +22,11 @@ const Container = styled.div`
   ${({ theme }) => theme.mediaQueries.sm} {
     padding-left: 32px;
   }
+  div {
+    div {
+      color: white;
+    }
+  }
 `
 
 const TokenWrapper = styled.div`

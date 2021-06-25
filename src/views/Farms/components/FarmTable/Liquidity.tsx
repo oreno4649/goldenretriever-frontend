@@ -22,6 +22,9 @@ const LiquidityWrapper = styled.div`
     text-align: left;
     margin-right: 0;
   }
+  div {
+    color: white;
+  }
 `
 
 const Container = styled.div`

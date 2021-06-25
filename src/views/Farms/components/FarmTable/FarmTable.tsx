@@ -15,9 +15,10 @@ export interface ITableProps {
 const Container = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
   width: 100%;
-  background: ${({ theme }) => theme.card.background};
+  background: #1B123E;
   border-radius: 16px;
   margin: 16px 0px;
+  border: 1px solid #ce00f0;
 `
 
 const TableWrapper = styled.div`

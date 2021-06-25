@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { Box } from '@pancakeswap/uikit'
 import Container from '../layout/Container'
 
-const Outer = styled(Box)<{ background?: string }>`
-  background: ${({ theme, background }) => background || theme.colors.gradients.bubblegum};
+const Outer = styled(Box)`
 `
 
 const Inner = styled(Container)`
@@ -12,8 +11,8 @@ const Inner = styled(Container)`
   padding-bottom: 32px;
 `
 
-const PageHeader: React.FC<{ background?: string }> = ({ background, children, ...props }) => (
-  <Outer background={background} {...props}>
+const PageHeader: React.FC = ({children, ...props }) => (
+  <Outer {...props}>
     <Inner>{children}</Inner>
   </Outer>
 )

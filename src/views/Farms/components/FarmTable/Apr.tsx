@@ -21,7 +21,7 @@ export interface AprProps {
 const Container = styled.div`
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.colors.text};
+  color: white;
 
   button {
     width: 20px;
