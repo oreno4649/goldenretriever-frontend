@@ -25,8 +25,8 @@ import {RowProps} from './components/FarmTable/Row'
 import {DesktopColumnSchema, ViewMode} from './components/types'
 
 const Container = styled.div`
-  margin-right: 32px;
-  margin-left: 32px;
+  width: 1100px;
+  margin: 0 auto;
 `
 
 const GRPageHeader = styled(PageHeader)`

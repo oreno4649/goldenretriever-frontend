@@ -5,6 +5,8 @@ import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
 
 const GRButton = styled(Button)`
+  width: 139px;
+  height: 36px;
   color: white;
   background: #000000;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
