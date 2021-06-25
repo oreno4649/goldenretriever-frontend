@@ -1,13 +1,7 @@
-import React, { useMemo } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { Heading, Card, CardBody, Flex } from '@pancakeswap/uikit'
-import max from 'lodash/max'
 import { NavLink } from 'react-router-dom'
-import { useTranslation } from 'contexts/Localization'
-import BigNumber from 'bignumber.js'
-import { getFarmApr } from 'utils/apr'
-import { useFarms, usePriceCakeBusd, useGetLastOraclePrice } from 'state/hooks'
-import { getAddress } from 'utils/addressHelpers'
 
 const StyledFarmStakingCard = styled(Card)`
   margin-left: auto;
@@ -26,9 +20,6 @@ const StyledFarmStakingCard = styled(Card)`
 `
 
 const SwapCard = () => {
-  const { data: farmsLP } = useFarms()
-  const prices = useGetLastOraclePrice()
-  const cakePrice = usePriceCakeBusd()
 
   const Homebtns = styled.div`background-color: green;`;
 
