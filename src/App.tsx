@@ -1,15 +1,16 @@
-import React, {lazy} from 'react'
-import {Router, Redirect, Route, Switch} from 'react-router-dom'
-import {ResetCSS} from '@pancakeswap/uikit'
+import React, { lazy } from 'react'
+import { Router, Redirect, Route, Switch } from 'react-router-dom'
+import { ResetCSS } from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
 import useEagerConnect from 'hooks/useEagerConnect'
-import {usePollCoreFarmData, useFetchProfile, usePollBlockNumber} from 'state/hooks'
+import { usePollCoreFarmData, useFetchProfile, usePollBlockNumber } from 'state/hooks'
 import GlobalStyle from './style/Global'
 import Menu from './components/Menu'
 import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 import EasterEgg from './components/EasterEgg'
+import Footer from './components/Footer'
 import Pools from './views/Pools'
 import history from './routerHistory'
 
@@ -41,60 +42,61 @@ const App: React.FC = () => {
 
   return (
     <Router history={history}>
-      <ResetCSS/>
-      <GlobalStyle/>
-      <Menu/>
-      <SuspenseWithChunkError fallback={<PageLoader/>}>
+      <ResetCSS />
+      <GlobalStyle />
+      <Menu />
+      <SuspenseWithChunkError fallback={<PageLoader />}>
         <Switch>
           <Route path="/" exact>
-            <Home/>
+            <Home />
           </Route>
           <Route path="/farms">
-            <Farms/>
+            <Farms />
           </Route>
           <Route path="/pools">
-            <Pools/>
+            <Pools />
           </Route>
           <Route path="/lottery">
-            <Lottery/>
+            <Lottery />
           </Route>
           <Route path="/ifo">
-            <Ifos/>
+            <Ifos />
           </Route>
           <Route path="/collectibles">
-            <Collectibles/>
+            <Collectibles />
           </Route>
           <Route exact path="/teams">
-            <Teams/>
+            <Teams />
           </Route>
           <Route path="/teams/:id">
-            <Team/>
+            <Team />
           </Route>
           <Route path="/profile">
-            <Profile/>
+            <Profile />
           </Route>
           <Route path="/competition">
-            <TradingCompetition/>
+            <TradingCompetition />
           </Route>
           <Route path="/prediction">
-            <Predictions/>
+            <Predictions />
           </Route>
           {/* Redirect */}
           <Route path="/staking">
-            <Redirect to="/pools"/>
+            <Redirect to="/pools" />
           </Route>
           <Route path="/syrup">
-            <Redirect to="/pools"/>
+            <Redirect to="/pools" />
           </Route>
           <Route path="/nft">
-            <Redirect to="/collectibles"/>
+            <Redirect to="/collectibles" />
           </Route>
           {/* 404 */}
-          <Route component={NotFound}/>
+          <Route component={NotFound} />
         </Switch>
+        <Footer />
       </SuspenseWithChunkError>
-      <EasterEgg iterations={2}/>
-      <ToastListener/>
+      <EasterEgg iterations={2} />
+      <ToastListener />
     </Router>
   )
 }

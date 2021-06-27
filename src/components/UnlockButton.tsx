@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, useWalletModal } from '@pancakeswap/uikit'
-import styled from "styled-components";
+import styled from 'styled-components'
 import useAuth from 'hooks/useAuth'
 import { useTranslation } from 'contexts/Localization'
 
@@ -13,7 +13,7 @@ const GRButton = styled(Button)`
   border-radius: 6px;
   border: 2px;
   border-image-slice: 1;
-  border-image: linear-gradient(94.17deg, #0947E7 0%, #CF00F0 73.96%);
+  border-image: linear-gradient(94.17deg, #0947e7 0%, #cf00f0 73.96%);
 `
 
 const UnlockButton = (props) => {

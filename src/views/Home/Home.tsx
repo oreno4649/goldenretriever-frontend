@@ -1,9 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/layout/Page'
-import StatusArea from "./components/StatusArea";
+import StatusArea from './components/StatusArea'
 
 const AnimeBg = styled.div`
+  @keyframes bgiLoop {
+    0% {
+      background-position: 0 0;
+    }
+    100% {
+      background-position: 1440px 0px;
+    }
+  }
+
   background-image: url('/images/city.png');
   animation: bgiLoop 20s linear infinite;
   background-repeat: repeat-x;
@@ -23,7 +32,7 @@ const Container = styled.div`
 
   .text_l {
     font-size: 20px;
-    color: #AEBFEB;
+    color: #aebfeb;
   }
 
   .mt50 {
@@ -72,8 +81,7 @@ const HomeContent = styled.div`
   }
 `
 
-const Section1 = styled.div`
-`
+const Section1 = styled.div``
 
 const Section2 = styled.div`
   background-image: url('/images/homecommunity.png');
@@ -113,7 +121,7 @@ const Section4 = styled.div`
   .txtbox {
     width: 50%;
   }
-  
+
   img {
     height: 350px;
   }
@@ -128,7 +136,7 @@ const SlipPage = styled.div`
   background-color: #000000;
   border: double 2px transparent;
   border-radius: 5px;
-  background-image: linear-gradient(#000000, #000000), linear-gradient(135deg, #0947E7, #CF00F0);
+  background-image: linear-gradient(#000000, #000000), linear-gradient(135deg, #0947e7, #cf00f0);
   background-origin: border-box;
   background-clip: content-box, border-box;
 
@@ -180,7 +188,6 @@ const Profile = styled.div`
       }
 
       .text_m {
-
       }
     }
   }
@@ -239,42 +246,63 @@ const Home: React.FC = () => {
     <Page>
       <AnimeBg>
         <Container>
-          <HomeMv className='flex'>
+          <HomeMv className="flex">
             <div className="left_area">
-              <div className="title mt50"><img src="/images/well.png" alt="Golden retriever finance"/></div>
-              <div className="text_l">The Golden retriever platform is <br/>a community-supported platform.<br/>
+              <div className="title mt50">
+                <img src="/images/well.png" alt="Golden retriever finance" />
+              </div>
+              <div className="text_l">
+                The Golden retriever platform is <br />a community-supported platform.
+                <br />
                 People all over the world will love Golden Retriever!
               </div>
               <div className="sns_links">
-                <a href="/#" className="sns_link" target="_blank"><img src="/images/tellegram.png" alt="telegram"/></a>
-                <a href="/#" className="sns_link" target="_blank"><img src="/images/twitter.png" alt="telegram"/></a>
+                <a href="/#" className="sns_link" target="_blank">
+                  <img src="/images/tellegram.png" alt="telegram" />
+                </a>
+                <a href="/#" className="sns_link" target="_blank">
+                  <img src="/images/twitter.png" alt="telegram" />
+                </a>
               </div>
             </div>
             <div className="right_area">
-              <div className="dogimage"><img src="/images/jump.png" alt="Golden retriever"/></div>
+              <div className="dogimage">
+                <img src="/images/jump.png" alt="Golden retriever" />
+              </div>
             </div>
           </HomeMv>
           <StatusArea />
           <HomeContent>
             <Section1 className="mt50">
-              <h2 className="txt_center"><span className="line mrauto"/>What is Golden Retriever finance?</h2>
-              <div className="image"><img src="/images/what.png" alt="Golden retriever finance"/></div>
-              <div className="text_l">Golden Retriever finance aims to build a Golden Retriever ecosystem.
-                Golden Retriever finance will launch new tokens every month to build an ecosystem.
-                Like the Golden Retriever, the tokens will all have very little supply.
-                This can increase the value of the Golden Retriever and create scarcity for new Tokens.
-                And above all, many users will be confident that Golden Retriever finance is a reliable project.
+              <h2 className="txt_center">
+                <span className="line mrauto" />
+                What is Golden Retriever finance?
+              </h2>
+              <div className="image">
+                <img src="/images/what.png" alt="Golden retriever finance" />
               </div>
-
+              <div className="text_l">
+                Golden Retriever finance aims to build a Golden Retriever ecosystem. Golden Retriever finance will
+                launch new tokens every month to build an ecosystem. Like the Golden Retriever, the tokens will all have
+                very little supply. This can increase the value of the Golden Retriever and create scarcity for new
+                Tokens. And above all, many users will be confident that Golden Retriever finance is a reliable project.
+              </div>
             </Section1>
             <Section2 className="mt50">
               <div className="flex">
-                <div className="image_w50"/>
+                <div className="image_w50" />
                 <div className="txtbox">
-                  <h2 className="txt_left"><span className="line"/>100%<br/>community<br/>platform</h2>
-                  <div className="text_l">Golden Retriever finance is a 100% community supported platform.
-                    Many users trade, purchase and offer liquidity at Golden Retriever finance
-                    Our mission is to create a huge community platform.
+                  <h2 className="txt_left">
+                    <span className="line" />
+                    100%
+                    <br />
+                    community
+                    <br />
+                    platform
+                  </h2>
+                  <div className="text_l">
+                    Golden Retriever finance is a 100% community supported platform. Many users trade, purchase and
+                    offer liquidity at Golden Retriever finance Our mission is to create a huge community platform.
                   </div>
                 </div>
               </div>
@@ -282,108 +310,212 @@ const Home: React.FC = () => {
             <Section3 className="mt50">
               <div className="flex">
                 <div className="txtbox">
-                  <h2 className="txt_left"><span className="line"/>Always equal</h2>
-                  <div className="text_l">Golden Retriever did not conduct any ICO or pre-sale.
-                    It is a coin that everyone can have equally from the beginning.
+                  <h2 className="txt_left">
+                    <span className="line" />
+                    Always equal
+                  </h2>
+                  <div className="text_l">
+                    Golden Retriever did not conduct any ICO or pre-sale. It is a coin that everyone can have equally
+                    from the beginning.
                   </div>
                 </div>
-                <div className="image_w50"><img src="/images/homeequal.png" alt="Golden retriever finance"/></div>
+                <div className="image_w50">
+                  <img src="/images/homeequal.png" alt="Golden retriever finance" />
+                </div>
               </div>
             </Section3>
             <Section4 className="mt50">
               <div className="flex">
-                <div className="image_w50"><img src="/images/homesque.png" alt="Golden retriever finance"/></div>
+                <div className="image_w50">
+                  <img src="/images/homesque.png" alt="Golden retriever finance" />
+                </div>
                 <div className="txtbox">
-                  <h2 className="txt_left"><span className="line"/>Schedule</h2>
-                  <div className="text_l">The initial circulating supply is 8,000 coins. Swap will be available at SGT 8
-                    AM on July 7, 2021. The farm will open on August 1, 2021.
+                  <h2 className="txt_left">
+                    <span className="line" />
+                    Schedule
+                  </h2>
+                  <div className="text_l">
+                    The initial circulating supply is 8,000 coins. Swap will be available at SGT 8 AM on July 7, 2021.
+                    The farm will open on August 1, 2021.
                   </div>
                 </div>
               </div>
             </Section4>
             <SlipPage className="txt_center">
               <div className="title">12%のスリップページを使用することをお勧めします。</div>
-              <div className="contract bold"><span className="pr20">Golden retriever Contract</span>0x111111111111111111111111111111111111111111111
+              <div className="contract bold">
+                <span className="pr20">Golden retriever Contract</span>0x111111111111111111111111111111111111111111111
               </div>
             </SlipPage>
             <Profile>
-              <h2 className="txt_center"><span className="line"/>Golden Retriever</h2>
+              <h2 className="txt_center">
+                <span className="line" />
+                Golden Retriever
+              </h2>
               <div className="flex">
-                <div className="profimage"><img className="mrauto" src="/images/dog.png"
-                                                alt="Golden retriever finance"/></div>
+                <div className="profimage">
+                  <img className="mrauto" src="/images/dog.png" alt="Golden retriever finance" />
+                </div>
                 <div className="txtbox">
                   <ul>
-                    <li><span className="caption">Name</span><span className="text_m">Golden retriever</span></li>
-                    <li><span className="caption">Age</span><span className="text_m">1 year old</span></li>
-                    <li><span className="caption">Features</span><span className="text_m">The Golden Retriever is a large dog. Gentle character with wisdom and loyalty, Golden Retrievers are loved by many.</span>
+                    <li>
+                      <span className="caption">Name</span>
+                      <span className="text_m">Golden retriever</span>
                     </li>
-                    <li><span className="caption">性格</span><span className="text_m"/></li>
-                    <li><span className="caption">Dream</span><span className="text_m">I want fans all over the world to have fun playing in the dog park</span>
+                    <li>
+                      <span className="caption">Age</span>
+                      <span className="text_m">1 year old</span>
                     </li>
-                    <li><span className="caption">Comment</span><span className="text_m">A gentle dog who loves and is loved by many. I like being loved by many people. Love and peace!</span>
+                    <li>
+                      <span className="caption">Features</span>
+                      <span className="text_m">
+                        The Golden Retriever is a large dog. Gentle character with wisdom and loyalty, Golden Retrievers
+                        are loved by many.
+                      </span>
+                    </li>
+                    <li>
+                      <span className="caption">性格</span>
+                      <span className="text_m" />
+                    </li>
+                    <li>
+                      <span className="caption">Dream</span>
+                      <span className="text_m">I want fans all over the world to have fun playing in the dog park</span>
+                    </li>
+                    <li>
+                      <span className="caption">Comment</span>
+                      <span className="text_m">
+                        A gentle dog who loves and is loved by many. I like being loved by many people. Love and peace!
+                      </span>
                     </li>
                   </ul>
                 </div>
               </div>
             </Profile>
             <Member>
-              <h2 className="txt_center"><span className="line"/>Project member</h2>
+              <h2 className="txt_center">
+                <span className="line" />
+                Project member
+              </h2>
               <div className="flex">
-                <div className="memberimage"><img src="/images/dog1.png" alt="Engineer / Leader dog"/></div>
+                <div className="memberimage">
+                  <img src="/images/dog1.png" alt="Engineer / Leader dog" />
+                </div>
                 <div className="txtbox">
                   <ul>
-                    <li><span className="caption">Playground</span><span className="text_m">Plex</span></li>
-                    <li><span className="caption">Role</span><span className="text_m">Engineer / Leader dog</span></li>
-                    <li><span className="caption">Personality</span><span className="text_m">A leader dog who has wisdom and loyalty, and is loved by everyone for his curiosity and mild personality.</span>
+                    <li>
+                      <span className="caption">Playground</span>
+                      <span className="text_m">Plex</span>
+                    </li>
+                    <li>
+                      <span className="caption">Role</span>
+                      <span className="text_m">Engineer / Leader dog</span>
+                    </li>
+                    <li>
+                      <span className="caption">Personality</span>
+                      <span className="text_m">
+                        A leader dog who has wisdom and loyalty, and is loved by everyone for his curiosity and mild
+                        personality.
+                      </span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="flex">
-                <div className="memberimage"><img src="/images/dog2.png" alt="Engineer dog"/></div>
+                <div className="memberimage">
+                  <img src="/images/dog2.png" alt="Engineer dog" />
+                </div>
                 <div className="txtbox">
                   <ul>
-                    <li><span className="caption">Playground</span><span className="text_m">Plex</span></li>
-                    <li><span className="caption">Role</span><span className="text_m">Engineer dog</span></li>
-                    <li><span className="caption">Personality</span><span className="text_m">Hates communicating with people. Enjoys loneliness and the only person he talks to is the leader dog. Loves Coca-Cola and games.</span>
+                    <li>
+                      <span className="caption">Playground</span>
+                      <span className="text_m">Plex</span>
+                    </li>
+                    <li>
+                      <span className="caption">Role</span>
+                      <span className="text_m">Engineer dog</span>
+                    </li>
+                    <li>
+                      <span className="caption">Personality</span>
+                      <span className="text_m">
+                        Hates communicating with people. Enjoys loneliness and the only person he talks to is the leader
+                        dog. Loves Coca-Cola and games.
+                      </span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="flex">
-                <div className="memberimage"><img src="/images/dog3.png" alt="Designer dog"/></div>
+                <div className="memberimage">
+                  <img src="/images/dog3.png" alt="Designer dog" />
+                </div>
                 <div className="txtbox">
                   <ul>
-                    <li><span className="caption">Playground</span><span className="text_m">Plex</span></li>
-                    <li><span className="caption">Role</span><span className="text_m">Designer dog</span></li>
-                    <li><span className="caption">Personality</span><span className="text_m">His design is so eccentric that his boss always asks him to start over. “Someday I’ll surpass Picasso!”, says the over ambitious dog all the time.</span>
+                    <li>
+                      <span className="caption">Playground</span>
+                      <span className="text_m">Plex</span>
+                    </li>
+                    <li>
+                      <span className="caption">Role</span>
+                      <span className="text_m">Designer dog</span>
+                    </li>
+                    <li>
+                      <span className="caption">Personality</span>
+                      <span className="text_m">
+                        His design is so eccentric that his boss always asks him to start over. “Someday I’ll surpass
+                        Picasso!”, says the over ambitious dog all the time.
+                      </span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="flex">
-                <div className="memberimage"><img src="/images/dog4.png" alt="Marketing dog"/></div>
+                <div className="memberimage">
+                  <img src="/images/dog4.png" alt="Marketing dog" />
+                </div>
                 <div className="txtbox">
                   <ul>
-                    <li><span className="caption">Playground</span><span className="text_m">Plex</span></li>
-                    <li><span className="caption">Role</span><span className="text_m">Marketing dog</span></li>
-                    <li><span className="caption">Personality</span><span className="text_m">A cheerful, curious and active dog. Talkative at heart and gets nagging from his boss at least once a day.</span>
+                    <li>
+                      <span className="caption">Playground</span>
+                      <span className="text_m">Plex</span>
+                    </li>
+                    <li>
+                      <span className="caption">Role</span>
+                      <span className="text_m">Marketing dog</span>
+                    </li>
+                    <li>
+                      <span className="caption">Personality</span>
+                      <span className="text_m">
+                        A cheerful, curious and active dog. Talkative at heart and gets nagging from his boss at least
+                        once a day.
+                      </span>
                     </li>
                   </ul>
                 </div>
               </div>
 
               <div className="flex">
-                <div className="memberimage"><img src="/images/dog5.png" alt="Large and gentle"/></div>
+                <div className="memberimage">
+                  <img src="/images/dog5.png" alt="Large and gentle" />
+                </div>
                 <div className="txtbox">
                   <ul>
-                    <li><span className="caption">Playground</span><span className="text_m">California</span></li>
-                    <li><span className="caption">Role</span><span className="text_m">Drinking coffee with the leader dog. Large and gentle.</span>
+                    <li>
+                      <span className="caption">Playground</span>
+                      <span className="text_m">California</span>
                     </li>
-                    <li><span className="caption">Personality</span><span className="text_m">Dog that devoted his life to making movies. Loves movies so much he can talk about them 24 hours a day. A good mentor of leader dog, he will help you immediately if you have a problem.</span>
+                    <li>
+                      <span className="caption">Role</span>
+                      <span className="text_m">Drinking coffee with the leader dog. Large and gentle.</span>
+                    </li>
+                    <li>
+                      <span className="caption">Personality</span>
+                      <span className="text_m">
+                        Dog that devoted his life to making movies. Loves movies so much he can talk about them 24 hours
+                        a day. A good mentor of leader dog, he will help you immediately if you have a problem.
+                      </span>
                     </li>
                   </ul>
                 </div>

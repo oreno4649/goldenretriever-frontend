@@ -20,22 +20,23 @@ const StyledFarmStakingCard = styled(Card)`
 `
 
 const SwapCard = () => {
-
-  const Homebtns = styled.div`background-color: green;`;
+  const Homebtns = styled.div`
+    background-color: green;
+  `
 
   return (
     <StyledFarmStakingCard>
       <NavLink exact activeClassName="active" to="/farms" id="farm-apr-cta">
         <CardBody>
           <Heading color="contrast" scale="lg">
-          Exchange
+            Exchange
           </Heading>
           <Flex justifyContent="space-between">
             <Heading color="contrast" scale="lg">
-            Exchange tokens
+              Exchange tokens
             </Heading>
             <Homebtns>
-            <div>Swap</div>
+              <div>Swap</div>
             </Homebtns>
           </Flex>
         </CardBody>

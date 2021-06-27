@@ -66,7 +66,7 @@ const Divider = styled.div`
 const ExpandingWrapper = styled.div<{ expanded: boolean }>`
   height: ${(props) => (props.expanded ? '100%' : '0px')};
   overflow: hidden;
-  background: linear-gradient(94.17deg, #023BCF 0%, #9600AE 73.96%);
+  background: linear-gradient(94.17deg, #023bcf 0%, #9600ae 73.96%);
 `
 
 interface FarmCardProps {
