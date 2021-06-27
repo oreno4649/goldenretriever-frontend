@@ -10,6 +10,7 @@ import SuspenseWithChunkError from './components/SuspenseWithChunkError'
 import ToastListener from './components/ToastListener'
 import PageLoader from './components/PageLoader'
 import EasterEgg from './components/EasterEgg'
+import Footer from './components/Footer'
 import Pools from './views/Pools'
 import history from './routerHistory'
 
@@ -92,6 +93,7 @@ const App: React.FC = () => {
           {/* 404 */}
           <Route component={NotFound} />
         </Switch>
+        <Footer />
       </SuspenseWithChunkError>
       <EasterEgg iterations={2} />
       <ToastListener />
