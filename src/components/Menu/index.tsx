@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const Nav = styled.nav`
   display: flex;
@@ -36,7 +36,7 @@ const NavList = styled.div`
   a.active {
     opacity: 1;
     font-weight: bold;
-    border-image: linear-gradient(90deg, #0947E7, #CF00F0);
+    border-image: linear-gradient(90deg, #0947e7, #cf00f0);
     border-image-slice: 1;
   }
 
@@ -45,27 +45,32 @@ const NavList = styled.div`
   }
 `
 
-
 const Menu = () => {
   return (
     <Nav>
-      <a href="/" className="logo"><img src="/images/h_logo.png" alt="Golden retriever finance"/></a>
+      <a href="/" className="logo">
+        <img src="/images/h_logo.png" alt="Golden retriever finance" />
+      </a>
       <NavList>
-        <a href="/" className="active">Home</a>
+        <a href="/" className="active">
+          Home
+        </a>
         <a href="/swap">Exchange</a>
         <a href="/#/pool">Liquidity</a>
         <a href="/farms">Farms</a>
         <a href="/pool">Pools</a>
         <a href="/#">Info</a>
-        {/* eslint-disable-next-line jsx-a11y/control-has-associated-label,jsx-a11y/alt-text */}
-        <a href="/#"><img src="/images/mark-github.png"/></a>
+        <a href="/#">
+          <img src="/images/mark-github.png" alt="github" />
+        </a>
       </NavList>
       <div className="personal">
         <div>
           <button type="button">Connect</button>
         </div>
-        {/* eslint-disable-next-line jsx-a11y/anchor-has-content,jsx-a11y/control-has-associated-label,jsx-a11y/anchor-is-valid */}
-        <div className="profile"><a href="#"/></div>
+        <a href="/">
+          <div className="profile" />
+        </a>
       </div>
     </Nav>
   )

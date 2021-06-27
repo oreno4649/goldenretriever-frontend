@@ -22,16 +22,16 @@ const Wrapper = styled.div`
     margin-left: 16px;
   }
   div {
-    background: linear-gradient(94.17deg, #0947E7 0%, #CF00F0 73.96%);
+    background: linear-gradient(94.17deg, #0947e7 0%, #cf00f0 73.96%);
     box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.45);
     border-radius: 13px;
     border: none;
 
-    a[variant="subtle"] {
-      color: #15137C;
+    a[variant='subtle'] {
+      color: #15137c;
       background: white;
     }
-    a[variant="tertiary"] {
+    a[variant='tertiary'] {
       color: white;
     }
   }

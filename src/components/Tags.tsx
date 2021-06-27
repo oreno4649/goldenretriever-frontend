@@ -1,7 +1,7 @@
 import React from 'react'
 import { Tag, BinanceIcon, RefreshIcon, AutoRenewIcon, TagProps } from '@pancakeswap/uikit'
 import { useTranslation } from 'contexts/Localization'
-import styled from "styled-components";
+import styled from 'styled-components'
 
 const GRTag = styled(Tag)`
   color: white;

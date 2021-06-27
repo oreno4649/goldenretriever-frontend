@@ -1,18 +1,18 @@
-import React, {FC, useEffect, useMemo, useState} from "react";
-import styled from "styled-components";
-import BigNumber from "bignumber.js";
-import max from "lodash/max";
-import {getFarmApr} from "../../../utils/apr";
-import {useFarms, usePriceCakeBusd} from "../../../state/hooks";
-import {useAppDispatch} from "../../../state";
-import {fetchFarmsPublicDataAsync, nonArchivedFarms} from "../../../state/farms";
-import {useGetStats} from "../../../hooks/api";
+import React, { FC, useEffect, useMemo, useState } from 'react'
+import styled from 'styled-components'
+import BigNumber from 'bignumber.js'
+import max from 'lodash/max'
+import { getFarmApr } from '../../../utils/apr'
+import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
+import { useAppDispatch } from '../../../state'
+import { fetchFarmsPublicDataAsync, nonArchivedFarms } from '../../../state/farms'
+import { useGetStats } from '../../../hooks/api'
 
 const Area = styled.div`
   .box_wrap {
     text-align: center;
     width: 19%;
-    background-color: #0C0026;
+    background-color: #0c0026;
     border-radius: 6px;
     padding: 10px;
     box-shadow: 0 0 16px rgb(7 0 27 / 20%);
@@ -26,7 +26,7 @@ const Area = styled.div`
     background-color: #000000;
     border: double 2px transparent;
     border-radius: 5px;
-    background-image: linear-gradient(#000000, #000000), linear-gradient(135deg, #0947E7, #CF00F0);
+    background-image: linear-gradient(#000000, #000000), linear-gradient(135deg, #0947e7, #cf00f0);
     background-origin: border-box;
     background-clip: content-box, border-box;
   }
@@ -43,7 +43,7 @@ const Area = styled.div`
   }
 `
 
-const StatusArea:FC = () => {
+const StatusArea: FC = () => {
   const [, setIsFetchingFarmData] = useState(true)
   const { data: farmsLP } = useFarms()
   const cakePrice = usePriceCakeBusd()
@@ -87,14 +87,18 @@ const StatusArea:FC = () => {
           <h3>Exchange</h3>
           <div className="text">Exchange tokens</div>
         </div>
-        <a href="/swap" className="btn_s btn_gr bold">Swap</a>
+        <a href="/swap" className="btn_s btn_gr bold">
+          Swap
+        </a>
       </div>
       <div className="box_wrap txt_center">
         <div className="top_area">
           <h3>Liquidity</h3>
           <div className="text">Make LP</div>
         </div>
-        <a href="/swap" className="btn_s btn_gr bold">Add LP</a>
+        <a href="/swap" className="btn_s btn_gr bold">
+          Add LP
+        </a>
       </div>
       <div className="box_wrap txt_center">
         <div className="top_area">
@@ -102,14 +106,18 @@ const StatusArea:FC = () => {
           <div className="text">Stake Liquidity Pool (LP)</div>
           <div className="nomber bold text_l">{highestApr}%</div>
         </div>
-        <a href="/swap" className="btn_s btn_gr bold">Farms</a>
+        <a href="/swap" className="btn_s btn_gr bold">
+          Farms
+        </a>
       </div>
       <div className="box_wrap txt_center">
         <div className="top_area">
           <h3>Pools</h3>
           <div className="text">Just stake some tokens to earn.</div>
         </div>
-        <a href="/swap" className="btn_s btn_gr bold">Pools</a>
+        <a href="/swap" className="btn_s btn_gr bold">
+          Pools
+        </a>
       </div>
       <div className="box_wrap txt_center">
         <div className="top_area">
