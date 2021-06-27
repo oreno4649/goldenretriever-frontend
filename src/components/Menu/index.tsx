@@ -11,6 +11,7 @@ const Nav = styled.nav`
   position: fixed;
   width: 100%;
   height: 62px;
+  padding: 0 14px 0 18px;
   border-bottom: 1px solid #422794;
   align-items: center;
 
@@ -29,11 +30,16 @@ const NavList = styled.div`
   a {
     color: #ffffff;
     display: block;
+    font-size: 14px;
+    padding: 0 21.5px;
     line-height: 59px;
-    width: 100px;
     text-align: center;
     border-bottom: 2px solid transparent;
     opacity: 0.36;
+    &.github {
+      opacity: 1;
+      display: flex;
+    }
   }
 
   a.active {
@@ -63,7 +69,7 @@ const Menu = () => {
             {t(item.label)}
           </a>
         ))}
-        <a href="/#">
+        <a href="/#" className="github">
           <img src="/images/mark-github.png" alt="github" />
         </a>
       </NavList>
