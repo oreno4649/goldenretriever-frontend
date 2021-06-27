@@ -26,6 +26,10 @@ const IconButtonWrapper = styled.div`
   display: flex;
 `
 
+const GRActionContent = styled(ActionContent)`
+  margin-top: 12px;
+`
+
 interface StackedActionProps extends FarmWithStakedValue {
   userDataReady: boolean
 }
@@ -104,9 +108,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
             {t('Start Farming')}
           </Text>
         </ActionTitles>
-        <ActionContent>
+        <GRActionContent>
+          <Text bold textTransform="uppercase" color="white" fontSize="32px">
+            0
+          </Text>
           <UnlockButton width="100%" />
-        </ActionContent>
+        </GRActionContent>
       </ActionContainer>
     )
   }
@@ -123,7 +130,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
               {t('Staked')}
             </Text>
           </ActionTitles>
-          <ActionContent>
+          <GRActionContent>
             <div>
               <Earned>{displayBalance()}</Earned>
               {stakedBalance.gt(0) && lpPrice.gt(0) && (
@@ -149,7 +156,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
                 <AddIcon color="primary" width="14px" />
               </IconButton>
             </IconButtonWrapper>
-          </ActionContent>
+          </GRActionContent>
         </ActionContainer>
       )
     }
@@ -164,7 +171,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
             {lpSymbol}
           </Text>
         </ActionTitles>
-        <ActionContent>
+        <GRActionContent>
           <Button
             width="100%"
             onClick={onPresentDeposit}
@@ -173,7 +180,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           >
             {t('Stake LP')}
           </Button>
-        </ActionContent>
+        </GRActionContent>
       </ActionContainer>
     )
   }
@@ -186,9 +193,9 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
             {t('Start Farming')}
           </Text>
         </ActionTitles>
-        <ActionContent>
+        <GRActionContent>
           <Skeleton width={180} marginBottom={28} marginTop={14} />
-        </ActionContent>
+        </GRActionContent>
       </ActionContainer>
     )
   }
@@ -200,11 +207,11 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           {t('Enable Farm')}
         </Text>
       </ActionTitles>
-      <ActionContent>
+      <GRActionContent>
         <Button width="100%" disabled={requestedApproval} onClick={handleApprove} variant="secondary">
           {t('Enable')}
         </Button>
-      </ActionContent>
+      </GRActionContent>
     </ActionContainer>
   )
 }

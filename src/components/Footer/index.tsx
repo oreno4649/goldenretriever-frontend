@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import { useTranslation } from 'contexts/Localization'
 import { languageList } from 'config/localization/languages'
 import { usePriceCakeBusd } from 'state/hooks'
-import { Language } from '@pancakeswap/uikit'
 
 const StyledFooter = styled.div`
   position: fixed;
@@ -35,7 +34,7 @@ const PriceWrapper = styled.div`
 `
 const LanguageListModal = styled.div`
   width: 210px;
-  height: 400px;
+  height: 8em;
   overflow: scroll;
   background-color: #fff;
   position: absolute;

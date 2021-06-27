@@ -8,6 +8,7 @@ const GRButton = styled(Button)`
   width: 139px;
   height: 36px;
   color: white;
+  font-size: 13px;
   background: #000000;
   box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
   border-radius: 6px;
