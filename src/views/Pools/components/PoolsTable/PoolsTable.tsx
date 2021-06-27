@@ -11,10 +11,22 @@ interface PoolsTableProps {
   account: string
 }
 
-const StyledTable = styled.div`
-  border-radius: ${({ theme }) => theme.radii.card};
+const Container = styled.div`
+  filter: ${({ theme }) => theme.card.dropShadow};
+  width: 100%;
+  background: #1b123e;
+  border-radius: 16px;
+  margin: 16px 0;
+  border: 1px solid #ce00f0;
+`
 
-  background-color: ${({ theme }) => theme.card.background};
+const StyledTable = styled.div`
+  filter: ${({ theme }) => theme.card.dropShadow};
+  width: 100%;
+  background: #1b123e;
+  margin: 16px 0;
+  border: 1px solid #ce00f0;
+  border-radius: 16px;
   > div:not(:last-child) {
     border-bottom: 2px solid ${({ theme }) => theme.colors.disabled};
   }
@@ -23,7 +35,6 @@ const StyledTable = styled.div`
 const StyledTableBorder = styled.div`
   border-radius: ${({ theme }) => theme.radii.card};
   background-color: ${({ theme }) => theme.colors.cardBorder};
-  padding: 1px 1px 3px 1px;
   background-size: 400% 400%;
 `
 

@@ -18,6 +18,10 @@ interface PoolRowProps {
   userDataLoaded: boolean
 }
 
+const Container = styled.div`
+  border-bottom: 1px solid #ce00f0;
+`
+
 const StyledRow = styled.div`
   background-color: transparent;
   display: flex;
@@ -39,7 +43,7 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataLoaded }) => {
   const performanceFeeAsDecimal = performanceFee && performanceFee / 100
 
   return (
-    <>
+    <Container>
       <StyledRow role="row" onClick={toggleExpanded}>
         <NameCell pool={pool} />
         <EarningsCell pool={pool} account={account} userDataLoaded={userDataLoaded} />
@@ -57,7 +61,7 @@ const PoolRow: React.FC<PoolRowProps> = ({ pool, account, userDataLoaded }) => {
           breakpoints={{ isXs, isSm, isMd, isLg, isXl }}
         />
       )}
-    </>
+    </Container>
   )
 }
 
