@@ -22,7 +22,7 @@ const MenuItemList: MenuItem[] = [
   },
   {
     label: 'Pools',
-    href: '/pool',
+    href: '/pools',
   },
   {
     label: 'Info',
