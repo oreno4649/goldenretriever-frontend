@@ -1,5 +1,8 @@
 import React from 'react'
+import { useTranslation } from 'contexts/Localization'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
+import MenuItemList from './config'
 
 const Nav = styled.nav`
   display: flex;
@@ -46,20 +49,20 @@ const NavList = styled.div`
 `
 
 const Menu = () => {
+  const location = useLocation()
+  const { t } = useTranslation()
+
   return (
     <Nav>
       <a href="/" className="logo">
         <img src="/images/h_logo.png" alt="Golden retriever finance" />
       </a>
       <NavList>
-        <a href="/" className="active">
-          Home
-        </a>
-        <a href="/swap">Exchange</a>
-        <a href="/#/pool">Liquidity</a>
-        <a href="/farms">Farms</a>
-        <a href="/pool">Pools</a>
-        <a href="/#">Info</a>
+        {MenuItemList.map((item, index) => (
+          <a href={item.href} className={location.pathname === item.href ? 'active' : ''}>
+            {t(item.label)}
+          </a>
+        ))}
         <a href="/#">
           <img src="/images/mark-github.png" alt="github" />
         </a>
