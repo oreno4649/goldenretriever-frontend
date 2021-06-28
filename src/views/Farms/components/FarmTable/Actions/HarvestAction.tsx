@@ -28,22 +28,27 @@ const ButtonWrapper = styled.div`
   height: 36px;
   text-align: center;
   background: linear-gradient(94.17deg, #0947e7 0%, #cf00f0 73.96%);
-  padding: 2px;
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
 
 const GRButton = styled(Button)`
   color: white;
-  width: 139px;
-  height: 36px;
+  display: block;
+  width: 135px;
+  height: 32px;
   background: #000000;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
   border-radius: 6px;
+  margin: auto;
 
   :disabled,
   .pancake-button--disabled {
     color: white;
     background: #000000;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
   }
 `
