@@ -1,30 +1,29 @@
-import React, {useEffect, useMemo, useRef, useState} from 'react'
-import {useLocation} from 'react-router-dom'
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import BigNumber from 'bignumber.js'
-import {useWeb3React} from '@web3-react/core'
-import {Heading, Flex, Image, Text} from '@pancakeswap/uikit'
+import { useWeb3React } from '@web3-react/core'
+import { Heading, Flex, Image, Text } from '@pancakeswap/uikit'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
-import {useTranslation} from 'contexts/Localization'
+import { useTranslation } from 'contexts/Localization'
 import usePersistState from 'hooks/usePersistState'
-import {usePools, useFetchCakeVault, useFetchPublicPoolsData, usePollFarmsData, useCakeVault} from 'state/hooks'
-import {latinise} from 'utils/latinise'
+import { usePools, useFetchCakeVault, useFetchPublicPoolsData, usePollFarmsData, useCakeVault } from 'state/hooks'
+import { latinise } from 'utils/latinise'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import PageHeader from 'components/PageHeader'
 import SearchInput from 'components/SearchInput'
-import Select, {OptionProps} from 'components/Select/Select'
-import {Pool} from 'state/types'
+import Select, { OptionProps } from 'components/Select/Select'
+import { Pool } from 'state/types'
 import PoolCard from './components/PoolCard'
 import CakeVaultCard from './components/CakeVaultCard'
 import PoolTabButtons from './components/PoolTabButtons'
 import BountyCard from './components/BountyCard'
 import HelpButton from './components/HelpButton'
 import PoolsTable from './components/PoolsTable/PoolsTable'
-import {ViewMode} from './components/ToggleView/ToggleView'
-import {getAprData, getCakeVaultEarnings} from './helpers'
-
+import { ViewMode } from './components/ToggleView/ToggleView'
+import { getAprData, getCakeVaultEarnings } from './helpers'
 
 const Container = styled.div`
   width: 1100px;
@@ -77,7 +76,7 @@ const PoolControls = styled(Flex)`
   flex-direction: column;
   margin-bottom: 24px;
 
-  ${({theme}) => theme.mediaQueries.md} {
+  ${({ theme }) => theme.mediaQueries.md} {
     flex-direction: row;
   }
 `
@@ -97,19 +96,19 @@ const NUMBER_OF_POOLS_VISIBLE = 12
 
 const Pools: React.FC = () => {
   const location = useLocation()
-  const {t} = useTranslation()
-  const {account} = useWeb3React()
-  const {pools: poolsWithoutAutoVault, userDataLoaded} = usePools(account)
-  const [stakedOnly, setStakedOnly] = usePersistState(false, {localStorageKey: 'pancake_pool_staked'})
+  const { t } = useTranslation()
+  const { account } = useWeb3React()
+  const { pools: poolsWithoutAutoVault, userDataLoaded } = usePools(account)
+  const [stakedOnly, setStakedOnly] = usePersistState(false, { localStorageKey: 'pancake_pool_staked' })
   const [numberOfPoolsVisible, setNumberOfPoolsVisible] = useState(NUMBER_OF_POOLS_VISIBLE)
   const [observerIsSet, setObserverIsSet] = useState(false)
   const loadMoreRef = useRef<HTMLDivElement>(null)
-  const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, {localStorageKey: 'pancake_farm_view'})
+  const [viewMode, setViewMode] = usePersistState(ViewMode.TABLE, { localStorageKey: 'pancake_farm_view' })
   const [searchQuery, setSearchQuery] = useState('')
   const [sortOption, setSortOption] = useState('hot')
   const {
-    userData: {cakeAtLastUserAction, userShares},
-    fees: {performanceFee},
+    userData: { cakeAtLastUserAction, userShares },
+    fees: { performanceFee },
     pricePerFullShare,
     totalCakeInVault,
   } = useCakeVault()
@@ -118,7 +117,7 @@ const Pools: React.FC = () => {
 
   const pools = useMemo(() => {
     const cakePool = poolsWithoutAutoVault.find((pool) => pool.sousId === 0)
-    const cakeAutoVault = {...cakePool, isAutoVault: true}
+    const cakeAutoVault = { ...cakePool, isAutoVault: true }
     return [cakeAutoVault, ...poolsWithoutAutoVault]
   }, [poolsWithoutAutoVault])
 
@@ -196,12 +195,12 @@ const Pools: React.FC = () => {
             }
             return pool.isAutoVault
               ? getCakeVaultEarnings(
-                account,
-                cakeAtLastUserAction,
-                userShares,
-                pricePerFullShare,
-                pool.earningTokenPrice,
-              ).autoUsdToDisplay
+                  account,
+                  cakeAtLastUserAction,
+                  userShares,
+                  pricePerFullShare,
+                  pool.earningTokenPrice,
+                ).autoUsdToDisplay
               : pool.userData.pendingReward.times(pool.earningTokenPrice).toNumber()
           },
           'desc',
@@ -239,15 +238,15 @@ const Pools: React.FC = () => {
     <CardLayout>
       {poolsToShow().map((pool) =>
         pool.isAutoVault ? (
-          <CakeVaultCard key="auto-cake" pool={pool} showStakedOnly={stakedOnly}/>
+          <CakeVaultCard key="auto-cake" pool={pool} showStakedOnly={stakedOnly} />
         ) : (
-          <PoolCard key={pool.sousId} pool={pool} account={account}/>
+          <PoolCard key={pool.sousId} pool={pool} account={account} />
         ),
       )}
     </CardLayout>
   )
 
-  const tableLayout = <PoolsTable pools={poolsToShow()} account={account} userDataLoaded={userDataLoaded}/>
+  const tableLayout = <PoolsTable pools={poolsToShow()} account={account} userDataLoaded={userDataLoaded} />
 
   return (
     <Container>
@@ -265,8 +264,8 @@ const Pools: React.FC = () => {
             </Heading>
           </Flex>
           <Flex flex="1" height="fit-content" justifyContent="center" alignItems="center" mt={['24px', null, '0']}>
-            <HelpButton/>
-            <BountyCard/>
+            <HelpButton />
+            <BountyCard />
           </Flex>
         </Flex>
       </GRPageHeader>
@@ -309,7 +308,7 @@ const Pools: React.FC = () => {
             </Flex>
             <Flex flexDirection="column" width="50%">
               <ControlStretch>
-                <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools"/>
+                <SearchInput onChange={handleChangeSearchQuery} placeholder="Search Pools" />
               </ControlStretch>
             </Flex>
           </SearchSortContainer>
@@ -320,7 +319,7 @@ const Pools: React.FC = () => {
           </Text>
         )}
         {viewMode === ViewMode.CARD ? cardLayout : tableLayout}
-        <div ref={loadMoreRef}/>
+        <div ref={loadMoreRef} />
         <Image
           mx="auto"
           mt="12px"
