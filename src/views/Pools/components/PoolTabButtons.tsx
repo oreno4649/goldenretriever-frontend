@@ -1,5 +1,5 @@
 import React from 'react'
-import {useRouteMatch, Link} from 'react-router-dom'
+import { useRouteMatch, Link } from 'react-router-dom'
 import {
   ButtonMenu,
   ButtonMenuItem,
@@ -9,8 +9,8 @@ import {
   NotificationDot,
   useMatchBreakpoints,
 } from '@pancakeswap/uikit'
-import {useTranslation} from 'contexts/Localization'
-import styled from "styled-components";
+import { useTranslation } from 'contexts/Localization'
+import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
@@ -24,7 +24,7 @@ const Wrapper = styled.div`
     font-size: 12px;
   }
 
-  ${({theme}) => theme.mediaQueries.sm} {
+  ${({ theme }) => theme.mediaQueries.sm} {
     margin-left: 16px;
   }
 
@@ -62,10 +62,10 @@ const ToggleWrapper = styled.div`
   }
 `
 
-const PoolTabButtons = ({stakedOnly, setStakedOnly, hasStakeInFinishedPools, viewMode, setViewMode}) => {
-  const {url, isExact} = useRouteMatch()
-  const {isXs, isSm} = useMatchBreakpoints()
-  const {t} = useTranslation()
+const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, viewMode, setViewMode }) => {
+  const { url, isExact } = useRouteMatch()
+  const { isXs, isSm } = useMatchBreakpoints()
+  const { t } = useTranslation()
 
   const liveOrFinishedSwitch = (
     <Wrapper>
@@ -85,9 +85,11 @@ const PoolTabButtons = ({stakedOnly, setStakedOnly, hasStakeInFinishedPools, vie
   const stakedOnlySwitch = (
     <Flex mt={['4px', null, 0, null]} ml={[0, null, '24px', null]} justifyContent="center" alignItems="center">
       <ToggleWrapper>
-        <Toggle scale="sm" checked={stakedOnly} onChange={() => setStakedOnly((prev) => !prev)}/>
+        <Toggle scale="sm" checked={stakedOnly} onChange={() => setStakedOnly((prev) => !prev)} />
       </ToggleWrapper>
-      <Text color="white" ml={['4px', '4px', '8px']}>{t('Staked only')}</Text>
+      <Text color="white" ml={['4px', '4px', '8px']}>
+        {t('Staked only')}
+      </Text>
     </Flex>
   )
 

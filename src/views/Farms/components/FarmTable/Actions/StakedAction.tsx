@@ -30,6 +30,41 @@ const GRActionContent = styled(ActionContent)`
   margin-top: 12px;
 `
 
+const UnlockButtonWrapper = styled.div`
+  border-radius: 6px;
+  button {
+    position: relative;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.13);
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    border-left: 2px solid #0947e7;
+    border-right: 2px solid #cf00f0;
+    border-image: initial;
+    font-size: 14px;
+    letter-spacing: 0;
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: 0;
+      background: linear-gradient(to right, #0947e7 0%, #cf00f0 100%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to right, #0947e7 0%, #cf00f0 100%);
+    }
+  }
+`
+
 interface StackedActionProps extends FarmWithStakedValue {
   userDataReady: boolean
 }
@@ -112,7 +147,9 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({
           <Text bold textTransform="uppercase" color="white" fontSize="32px">
             0
           </Text>
-          <UnlockButton width="100%" />
+          <UnlockButtonWrapper>
+            <UnlockButton width="100%" />
+          </UnlockButtonWrapper>
         </GRActionContent>
       </ActionContainer>
     )
