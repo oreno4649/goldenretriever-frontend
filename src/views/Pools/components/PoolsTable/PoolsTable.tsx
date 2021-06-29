@@ -11,15 +11,6 @@ interface PoolsTableProps {
   account: string
 }
 
-const Container = styled.div`
-  filter: ${({ theme }) => theme.card.dropShadow};
-  width: 100%;
-  background: #1b123e;
-  border-radius: 16px;
-  margin: 16px 0;
-  border: 1px solid #ce00f0;
-`
-
 const StyledTable = styled.div`
   filter: ${({ theme }) => theme.card.dropShadow};
   width: 100%;
@@ -27,9 +18,6 @@ const StyledTable = styled.div`
   margin: 16px 0;
   border: 1px solid #ce00f0;
   border-radius: 16px;
-  > div:not(:last-child) {
-    border-bottom: 2px solid ${({ theme }) => theme.colors.disabled};
-  }
 `
 
 const StyledTableBorder = styled.div`

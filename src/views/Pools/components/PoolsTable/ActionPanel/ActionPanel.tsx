@@ -57,7 +57,7 @@ const StyledActionPanel = styled.div<{ expanded: boolean }>`
           ${collapseAnimation} 300ms linear forwards
         `};
   overflow: hidden;
-  background: ${({ theme }) => theme.colors.dropdown};
+  background: linear-gradient(94.17deg, #023bcf 0%, #9600ae 73.96%);
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -66,6 +66,15 @@ const StyledActionPanel = styled.div<{ expanded: boolean }>`
   ${({ theme }) => theme.mediaQueries.lg} {
     flex-direction: row;
     padding: 16px 32px;
+  }
+`
+
+const StyledLinkExternal = styled(LinkExternal)`
+  font-color: #90e4ff;
+  font-size: 12px;
+  font-weight: 400;
+  svg {
+    display: none;
   }
 `
 
@@ -233,23 +242,23 @@ const ActionPanel: React.FC<ActionPanelProps> = ({ account, pool, userDataLoaded
         {(isXs || isSm || isMd) && totalStakedRow}
         {shouldShowBlockCountdown && blocksRow}
         <Flex mb="8px" justifyContent={['flex-end', 'flex-end', 'flex-start']}>
-          <LinkExternal href={`https://pancakeswap.info/token/${getAddress(earningToken.address)}`} bold={false}>
+          <StyledLinkExternal href={`https://pancakeswap.info/token/${getAddress(earningToken.address)}`} bold={false}>
             {t('Info site')}
-          </LinkExternal>
+          </StyledLinkExternal>
         </Flex>
         <Flex mb="8px" justifyContent={['flex-end', 'flex-end', 'flex-start']}>
-          <LinkExternal href={earningToken.projectLink} bold={false}>
+          <StyledLinkExternal href={earningToken.projectLink} bold={false}>
             {t('View Project Site')}
-          </LinkExternal>
+          </StyledLinkExternal>
         </Flex>
         {poolContractAddress && (
           <Flex mb="8px" justifyContent={['flex-end', 'flex-end', 'flex-start']}>
-            <LinkExternal
+            <StyledLinkExternal
               href={`${BASE_BSC_SCAN_URL}/address/${isAutoVault ? cakeVaultContractAddress : poolContractAddress}`}
               bold={false}
             >
               {t('View Contract')}
-            </LinkExternal>
+            </StyledLinkExternal>
           </Flex>
         )}
         {account && isMetaMaskInScope && tokenAddress && (

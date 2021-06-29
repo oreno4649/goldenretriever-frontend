@@ -24,6 +24,41 @@ const IconButtonWrapper = styled.div`
   display: flex;
 `
 
+const UnlockButtonWrapper = styled.div`
+  border-radius: 6px;
+  button {
+    position: relative;
+    width: auto;
+    background-color: rgba(0, 0, 0, 0.13);
+    box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+    border-radius: 6px;
+    overflow: hidden;
+    border-left: 2px solid #0947e7;
+    border-right: 2px solid #cf00f0;
+    border-image: initial;
+    font-size: 14px;
+    letter-spacing: 0;
+    &::before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: 0;
+      background: linear-gradient(to right, #0947e7 0%, #cf00f0 100%);
+    }
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      background: linear-gradient(to right, #0947e7 0%, #cf00f0 100%);
+    }
+  }
+`
+
 interface StackedActionProps {
   pool: Pool
   userDataLoaded: boolean
@@ -135,12 +170,17 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
+          <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
             {t('Start staking')}
           </Text>
         </ActionTitles>
         <ActionContent>
-          <UnlockButton width="100%" />
+          <Text bold textTransform="uppercase" color="white" fontSize="32px">
+            0
+          </Text>
+        <UnlockButtonWrapper>
+            <UnlockButton width="100%" />
+          </UnlockButtonWrapper>
         </ActionContent>
       </ActionContainer>
     )
@@ -150,7 +190,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
+          <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
             {t('Start staking')}
           </Text>
         </ActionTitles>
@@ -165,7 +205,7 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
+          <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
             {t('Enable pool')}
           </Text>
         </ActionTitles>
@@ -183,10 +223,10 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
     return (
       <ActionContainer>
         <ActionTitles>
-          <Text fontSize="12px" bold color="secondary" as="span" textTransform="uppercase">
+          <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
             {stakingToken.symbol}{' '}
           </Text>
-          <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
+          <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
             {isAutoVault ? t('Staked (compounding)') : t('Staked')}
           </Text>
         </ActionTitles>
@@ -198,11 +238,12 @@ const Staked: React.FunctionComponent<StackedActionProps> = ({ pool, userDataLoa
               fontSize="20px"
               decimals={5}
               value={isAutoVault ? cakeAsNumberBalance : stakedTokenBalance}
+              color='white'
             />
             <Balance
               fontSize="12px"
               display="inline"
-              color="textSubtle"
+              color="white"
               decimals={2}
               value={isAutoVault ? stakedAutoDollarValue : stakedTokenDollarBalance}
               unit=" USD"

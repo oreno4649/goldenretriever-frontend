@@ -50,6 +50,7 @@ const Apr: React.FC<AprProps> = ({ pool, showIcon, performanceFee = 0, ...props 
               onClick={openRoiModal}
               fontSize="16px"
               isDisabled={isFinished}
+              color='white'
               value={isFinished ? 0 : earningsPercentageToDisplay}
               decimals={2}
               unit="%"

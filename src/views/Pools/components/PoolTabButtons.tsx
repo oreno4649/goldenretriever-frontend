@@ -62,6 +62,7 @@ const ToggleWrapper = styled.div`
   }
 `
 
+// eslint-disable-next-line
 const PoolTabButtons = ({ stakedOnly, setStakedOnly, hasStakeInFinishedPools, viewMode, setViewMode }) => {
   const { url, isExact } = useRouteMatch()
   const { isXs, isSm } = useMatchBreakpoints()

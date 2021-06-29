@@ -55,9 +55,9 @@ const ManualPoolTag: React.FC<TagProps> = (props) => {
 const CompoundingPoolTag: React.FC<TagProps> = (props) => {
   const { t } = useTranslation()
   return (
-    <Tag variant="success" outline startIcon={<AutoRenewIcon width="18px" color="success" mr="4px" />} {...props}>
+    <GRTag variant="success" outline startIcon={<AutoRenewIcon width="18px" color="success" mr="4px" />} {...props}>
       {t('Auto')}
-    </Tag>
+    </GRTag>
   )
 }
 

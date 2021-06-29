@@ -26,17 +26,13 @@ const StyledCell = styled(BaseCell)`
 const ArrowIcon = styled(ChevronDownIcon)<{ toggled: boolean }>`
   transform: ${({ toggled }) => (toggled ? 'rotate(180deg)' : 'rotate(0)')};
   height: 24px;
+  fill: rgba(255, 255, 255, 0.54);
 `
 
 const TotalStakedCell: React.FC<ExpandActionCellProps> = ({ expanded, isFullLayout }) => {
   const { t } = useTranslation()
   return (
     <StyledCell role="cell">
-      {isFullLayout && (
-        <Text color="primary" bold>
-          {expanded ? t('Hide') : t('Details')}
-        </Text>
-      )}
       <ArrowIcon color="primary" toggled={expanded} />
     </StyledCell>
   )

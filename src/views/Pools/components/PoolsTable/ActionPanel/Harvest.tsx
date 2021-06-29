@@ -1,17 +1,18 @@
 import React from 'react'
-import { Button, Text, useModal, Flex, TooltipText, useTooltip, Skeleton } from '@pancakeswap/uikit'
+import {Button, Text, useModal, Flex, TooltipText, useTooltip, Skeleton} from '@pancakeswap/uikit'
 import BigNumber from 'bignumber.js'
-import { useWeb3React } from '@web3-react/core'
-import { getCakeVaultEarnings } from 'views/Pools/helpers'
-import { PoolCategory } from 'config/constants/types'
-import { formatNumber, getBalanceNumber, getFullDisplayBalance } from 'utils/formatBalance'
-import { useTranslation } from 'contexts/Localization'
+import styled from "styled-components";
+import {useWeb3React} from '@web3-react/core'
+import {getCakeVaultEarnings} from 'views/Pools/helpers'
+import {PoolCategory} from 'config/constants/types'
+import {formatNumber, getBalanceNumber, getFullDisplayBalance} from 'utils/formatBalance'
+import {useTranslation} from 'contexts/Localization'
 import Balance from 'components/Balance'
-import { useCakeVault } from 'state/hooks'
-import { BIG_ZERO } from 'utils/bigNumber'
-import { Pool } from 'state/types'
+import {useCakeVault} from 'state/hooks'
+import {BIG_ZERO} from 'utils/bigNumber'
+import {Pool} from 'state/types'
 
-import { ActionContainer, ActionTitles, ActionContent } from './styles'
+import {ActionContainer, ActionTitles, ActionContent} from './styles'
 import CollectModal from '../../PoolCard/Modals/CollectModal'
 import UnstakingFeeCountdownRow from '../../CakeVaultCard/UnstakingFeeCountdownRow'
 
@@ -19,17 +20,51 @@ interface HarvestActionProps extends Pool {
   userDataLoaded: boolean
 }
 
+const GRActionContent = styled(ActionContent)`
+  margin-top: 12px;
+`
+
+const ButtonWrapper = styled.div`
+  width: 139px;
+  height: 36px;
+  text-align: center;
+  background: linear-gradient(94.17deg, #0947e7 0%, #cf00f0 73.96%);
+  box-shadow: 0px 4px 4px 0 rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const GRButton = styled(Button)`
+  color: white;
+  display: block;
+  width: 135px;
+  height: 32px;
+  background: #000000;
+  font-size: 14px;
+  border-radius: 6px;
+  margin: auto;
+
+  :disabled,
+  .pancake-button--disabled {
+    color: white;
+    background: #000000;
+    border-radius: 6px;
+  }
+`
+
 const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
-  sousId,
-  poolCategory,
-  earningToken,
-  userData,
-  userDataLoaded,
-  isAutoVault,
-  earningTokenPrice,
-}) => {
-  const { t } = useTranslation()
-  const { account } = useWeb3React()
+                                                                      sousId,
+                                                                      poolCategory,
+                                                                      earningToken,
+                                                                      userData,
+                                                                      userDataLoaded,
+                                                                      isAutoVault,
+                                                                      earningTokenPrice,
+                                                                    }) => {
+  const {t} = useTranslation()
+  const {account} = useWeb3React()
 
   const earnings = userData?.pendingReward ? new BigNumber(userData.pendingReward) : BIG_ZERO
   // These will be reassigned later if its Auto CAKE vault
@@ -43,11 +78,11 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
 
   // Auto CAKE vault calculations
   const {
-    userData: { cakeAtLastUserAction, userShares },
+    userData: {cakeAtLastUserAction, userShares},
     pricePerFullShare,
-    fees: { performanceFee },
+    fees: {performanceFee},
   } = useCakeVault()
-  const { hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay } = getCakeVaultEarnings(
+  const {hasAutoEarnings, autoCakeToDisplay, autoUsdToDisplay} = getCakeVaultEarnings(
     account,
     cakeAtLastUserAction,
     userShares,
@@ -72,21 +107,21 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
     />,
   )
 
-  const { targetRef, tooltip, tooltipVisible } = useTooltip(
+  const {targetRef, tooltip, tooltipVisible} = useTooltip(
     t('Subtracted automatically from each yield harvest and burned.'),
-    { placement: 'bottom-start' },
+    {placement: 'bottom-start'},
   )
 
   const actionTitle = isAutoVault ? (
-    <Text fontSize="12px" bold color="secondary" as="span" textTransform="uppercase">
+    <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
       {t('Recent CAKE profit')}
     </Text>
   ) : (
     <>
-      <Text fontSize="12px" bold color="secondary" as="span" textTransform="uppercase">
+      <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
         {earningToken.symbol}{' '}
       </Text>
-      <Text fontSize="12px" bold color="textSubtle" as="span" textTransform="uppercase">
+      <Text fontSize="12px" bold color="white" as="span" textTransform="uppercase">
         {t('Earned')}
       </Text>
     </>
@@ -96,10 +131,12 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
     return (
       <ActionContainer>
         <ActionTitles>{actionTitle}</ActionTitles>
-        <ActionContent>
-          <Balance pt="8px" lineHeight="1" bold fontSize="20px" decimals={5} value={0} />
-          <Button disabled>{isCompoundPool ? t('Collect') : t('Harvest')}</Button>
-        </ActionContent>
+        <GRActionContent>
+          <Balance pt="8px" lineHeight="1" bold fontSize="20px" decimals={5} value={0} color='white'/>
+          <ButtonWrapper>
+            <GRButton disabled>{isCompoundPool ? t('Collect') : t('Harvest')}</GRButton>
+          </ButtonWrapper>
+        </GRActionContent>
       </ActionContainer>
     )
   }
@@ -109,7 +146,7 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
       <ActionContainer>
         <ActionTitles>{actionTitle}</ActionTitles>
         <ActionContent>
-          <Skeleton width={180} height="32px" marginTop={14} />
+          <Skeleton width={180} height="32px" marginTop={14}/>
         </ActionContent>
       </ActionContainer>
     )
@@ -120,26 +157,26 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
       <ActionTitles>{actionTitle}</ActionTitles>
       <ActionContent>
         <Flex flex="1" pt="16px" flexDirection="column" alignSelf="flex-start">
-          <Balance lineHeight="1" bold fontSize="20px" decimals={5} value={displayBalance} />
+          <Balance lineHeight="1" bold fontSize="20px" decimals={5} value={displayBalance} color='white'/>
           {hasEarnings ? (
             <Balance
               display="inline"
               fontSize="12px"
-              color={hasEarnings ? 'textSubtle' : 'textDisabled'}
+              color='white'
               decimals={2}
               value={earningTokenDollarBalance}
               unit=" USD"
               prefix="~"
             />
           ) : (
-            <Text fontSize="12px" color={hasEarnings ? 'textSubtle' : 'textDisabled'}>
+            <Text fontSize="12px" color='white'>
               0 USD
             </Text>
           )}
         </Flex>
         {isAutoVault ? (
           <Flex flex="1.3" flexDirection="column" alignSelf="flex-start" alignItems="flex-start">
-            <UnstakingFeeCountdownRow isTableVariant />
+            <UnstakingFeeCountdownRow isTableVariant/>
             <Flex mb="2px" justifyContent="space-between" alignItems="center">
               {tooltipVisible && tooltip}
               <TooltipText ref={targetRef} small>
@@ -153,9 +190,11 @@ const HarvestAction: React.FunctionComponent<HarvestActionProps> = ({
             </Flex>
           </Flex>
         ) : (
-          <Button disabled={!hasEarnings} onClick={onPresentCollect}>
-            {isCompoundPool ? t('Collect') : t('Harvest')}
-          </Button>
+          <ButtonWrapper>
+            <GRButton disabled={!hasEarnings} onClick={onPresentCollect}>
+              {isCompoundPool ? t('Collect') : t('Harvest')}
+            </GRButton>
+          </ButtonWrapper>
         )}
       </ActionContent>
     </ActionContainer>

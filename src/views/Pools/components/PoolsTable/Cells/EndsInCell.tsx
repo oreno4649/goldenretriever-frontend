@@ -31,7 +31,7 @@ const EndsInCell: React.FC<FinishCellProps> = ({ pool }) => {
     <Flex alignItems="center">
       <Flex flex="1.3">
         <Balance fontSize="16px" value={blocksToDisplay} decimals={0} />
-        <Text ml="4px" textTransform="lowercase">
+        <Text ml="4px" textTransform="lowercase" color='white'>
           {t('Blocks')}
         </Text>
       </Flex>
@@ -57,7 +57,7 @@ const EndsInCell: React.FC<FinishCellProps> = ({ pool }) => {
   return (
     <StyledCell role="cell">
       <CellContent>
-        <Text fontSize="12px" color="textSubtle" textAlign="left">
+        <Text fontSize="12px" color="white" textAlign="left">
           {hasPoolStarted || !shouldShowBlockCountdown ? t('Ends in') : t('Starts in')}
         </Text>
         {showLoading ? <Skeleton width="80px" height="16px" /> : renderBlocks}
