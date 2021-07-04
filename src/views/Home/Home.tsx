@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Page from 'components/layout/Page'
-import StatusArea from './components/StatusArea'
+import { useTranslation } from 'contexts/Localization'
+import StatusArea from "./components/StatusArea";
 
 const AnimeBg = styled.div`
   @keyframes bgiLoop {
@@ -242,6 +243,7 @@ const Member = styled.div`
 `
 
 const Home: React.FC = () => {
+  const { t } = useTranslation()
   return (
     <Page>
       <AnimeBg>
@@ -252,9 +254,7 @@ const Home: React.FC = () => {
                 <img src="/images/well.png" alt="Golden retriever finance" />
               </div>
               <div className="text_l">
-                The Golden retriever platform is <br />a community-supported platform.
-                <br />
-                People all over the world will love Golden Retriever!
+                {t('The Golden retriever platform is a community-supported platform. People all over the world will love Golden Retriever!')}
               </div>
               <div className="sns_links">
                 <a href="/#" className="sns_link" target="_blank">
@@ -276,16 +276,13 @@ const Home: React.FC = () => {
             <Section1 className="mt50">
               <h2 className="txt_center">
                 <span className="line mrauto" />
-                What is Golden Retriever finance?
+                {t('What is Golden Retriever finance?')}
               </h2>
               <div className="image">
                 <img src="/images/what.png" alt="Golden retriever finance" />
               </div>
               <div className="text_l">
-                Golden Retriever finance aims to build a Golden Retriever ecosystem. Golden Retriever finance will
-                launch new tokens every month to build an ecosystem. Like the Golden Retriever, the tokens will all have
-                very little supply. This can increase the value of the Golden Retriever and create scarcity for new
-                Tokens. And above all, many users will be confident that Golden Retriever finance is a reliable project.
+                {t('Golden Retriever finance aims to build a Golden Retriever ecosystem. Golden Retriever finance will launch new tokens every month to build an ecosystem. Like the Golden Retriever, the tokens will all have very little supply. This can increase the value of the Golden Retriever and create scarcity for new Tokens. And above all, many users will be confident that Golden Retriever finance is a reliable project.')}
               </div>
             </Section1>
             <Section2 className="mt50">
@@ -301,8 +298,7 @@ const Home: React.FC = () => {
                     platform
                   </h2>
                   <div className="text_l">
-                    Golden Retriever finance is a 100% community supported platform. Many users trade, purchase and
-                    offer liquidity at Golden Retriever finance Our mission is to create a huge community platform.
+                    {t('Golden Retriever finance is a 100% community supported platform. Many users trade, purchase and offer liquidity at Golden Retriever finance Our mission is to create a huge community platform.')}
                   </div>
                 </div>
               </div>
@@ -315,8 +311,7 @@ const Home: React.FC = () => {
                     Always equal
                   </h2>
                   <div className="text_l">
-                    Golden Retriever did not conduct any ICO or pre-sale. It is a coin that everyone can have equally
-                    from the beginning.
+                    {t('Golden Retriever did not conduct any ICO or pre-sale. It is a coin that everyone can have equally from the beginning.')}
                   </div>
                 </div>
                 <div className="image_w50">
@@ -335,14 +330,13 @@ const Home: React.FC = () => {
                     Schedule
                   </h2>
                   <div className="text_l">
-                    The initial circulating supply is 8,000 coins. Swap will be available at SGT 8 AM on July 7, 2021.
-                    The farm will open on August 1, 2021.
+                    {t('The initial circulating supply is 8,000 coins. Swap will be available at SGT 8 AM on July 7, 2021. The farm will open on August 1, 2021.')}
                   </div>
                 </div>
               </div>
             </Section4>
             <SlipPage className="txt_center">
-              <div className="title">12%のスリップページを使用することをお勧めします。</div>
+              <div className="title">{t('We recommend using 12% slippage')}</div>
               <div className="contract bold">
                 <span className="pr20">Golden retriever Contract</span>0x111111111111111111111111111111111111111111111
               </div>
@@ -359,18 +353,17 @@ const Home: React.FC = () => {
                 <div className="txtbox">
                   <ul>
                     <li>
-                      <span className="caption">Name</span>
+                      <span className="caption">{t('Name')}</span>
                       <span className="text_m">Golden retriever</span>
                     </li>
                     <li>
-                      <span className="caption">Age</span>
-                      <span className="text_m">1 year old</span>
+                      <span className="caption">{t('Age')}</span>
+                      <span className="text_m">{t('1 year old')}</span>
                     </li>
                     <li>
-                      <span className="caption">Features</span>
+                      <span className="caption">{t('Features')}</span>
                       <span className="text_m">
-                        The Golden Retriever is a large dog. Gentle character with wisdom and loyalty, Golden Retrievers
-                        are loved by many.
+                        {t('The Golden Retriever is a large dog. Gentle character with wisdom and loyalty, Golden Retrievers are loved by many.')}
                       </span>
                     </li>
                     <li>
@@ -378,13 +371,13 @@ const Home: React.FC = () => {
                       <span className="text_m" />
                     </li>
                     <li>
-                      <span className="caption">Dream</span>
-                      <span className="text_m">I want fans all over the world to have fun playing in the dog park</span>
+                      <span className="caption">{t('Dream')}</span>
+                      <span className="text_m">{t('I want fans all over the world to have fun playing in the dog park')}</span>
                     </li>
                     <li>
-                      <span className="caption">Comment</span>
+                      <span className="caption">{t('Comment')}</span>
                       <span className="text_m">
-                        A gentle dog who loves and is loved by many. I like being loved by many people. Love and peace!
+                        {t('A gentle dog who loves and is loved by many. I like being loved by many people. Love and peace!')}
                       </span>
                     </li>
                   </ul>
@@ -403,18 +396,17 @@ const Home: React.FC = () => {
                 <div className="txtbox">
                   <ul>
                     <li>
-                      <span className="caption">Playground</span>
+                      <span className="caption">{t('Playground')}</span>
                       <span className="text_m">Plex</span>
                     </li>
                     <li>
-                      <span className="caption">Role</span>
-                      <span className="text_m">Engineer / Leader dog</span>
+                      <span className="caption">{t('Role')}</span>
+                      <span className="text_m">{t('Engineer / Leader dog')}</span>
                     </li>
                     <li>
-                      <span className="caption">Personality</span>
+                      <span className="caption">{t('Personality')}</span>
                       <span className="text_m">
-                        A leader dog who has wisdom and loyalty, and is loved by everyone for his curiosity and mild
-                        personality.
+                        {t('A leader dog who has wisdom and loyalty, and is loved by everyone for his curiosity and mild personality.')}
                       </span>
                     </li>
                   </ul>
@@ -428,18 +420,17 @@ const Home: React.FC = () => {
                 <div className="txtbox">
                   <ul>
                     <li>
-                      <span className="caption">Playground</span>
+                      <span className="caption">{t('Playground')}</span>
                       <span className="text_m">Plex</span>
                     </li>
                     <li>
-                      <span className="caption">Role</span>
-                      <span className="text_m">Engineer dog</span>
+                      <span className="caption">{t('Role')}</span>
+                      <span className="text_m">{t('Engineer dog')}</span>
                     </li>
                     <li>
-                      <span className="caption">Personality</span>
+                      <span className="caption">{t('Personality')}</span>
                       <span className="text_m">
-                        Hates communicating with people. Enjoys loneliness and the only person he talks to is the leader
-                        dog. Loves Coca-Cola and games.
+                        {t('Hates communicating with people. Enjoys loneliness and the only person he talks to is the leader dog. Loves Coca-Cola and games.')}
                       </span>
                     </li>
                   </ul>
@@ -453,18 +444,17 @@ const Home: React.FC = () => {
                 <div className="txtbox">
                   <ul>
                     <li>
-                      <span className="caption">Playground</span>
+                      <span className="caption">{t('Playground')}</span>
                       <span className="text_m">Plex</span>
                     </li>
                     <li>
-                      <span className="caption">Role</span>
-                      <span className="text_m">Designer dog</span>
+                      <span className="caption">{t('Role')}</span>
+                      <span className="text_m">{t('Designer dog')}</span>
                     </li>
                     <li>
-                      <span className="caption">Personality</span>
+                      <span className="caption">{t('Personality')}</span>
                       <span className="text_m">
-                        His design is so eccentric that his boss always asks him to start over. “Someday I’ll surpass
-                        Picasso!”, says the over ambitious dog all the time.
+                        {t('His design is so eccentric that his boss always asks him to start over. “Someday I’ll surpass Picasso!”, says the over ambitious dog all the time.')}
                       </span>
                     </li>
                   </ul>
@@ -478,18 +468,17 @@ const Home: React.FC = () => {
                 <div className="txtbox">
                   <ul>
                     <li>
-                      <span className="caption">Playground</span>
+                      <span className="caption">{t('Playground')}</span>
                       <span className="text_m">Plex</span>
                     </li>
                     <li>
-                      <span className="caption">Role</span>
-                      <span className="text_m">Marketing dog</span>
+                      <span className="caption">{t('Role')}</span>
+                      <span className="text_m">{t('Marketing dog')}</span>
                     </li>
                     <li>
-                      <span className="caption">Personality</span>
+                      <span className="caption">{t('Personality')}</span>
                       <span className="text_m">
-                        A cheerful, curious and active dog. Talkative at heart and gets nagging from his boss at least
-                        once a day.
+                        {t('A cheerful, curious and active dog. Talkative at heart and gets nagging from his boss at least once a day.')}
                       </span>
                     </li>
                   </ul>
@@ -503,18 +492,17 @@ const Home: React.FC = () => {
                 <div className="txtbox">
                   <ul>
                     <li>
-                      <span className="caption">Playground</span>
+                      <span className="caption">{t('Playground')}</span>
                       <span className="text_m">California</span>
                     </li>
                     <li>
-                      <span className="caption">Role</span>
-                      <span className="text_m">Drinking coffee with the leader dog. Large and gentle.</span>
+                      <span className="caption">{t('Role')}</span>
+                      <span className="text_m">{t('Drinking coffee with the leader dog. Large and gentle.')}</span>
                     </li>
                     <li>
-                      <span className="caption">Personality</span>
+                      <span className="caption">{t('Personality')}</span>
                       <span className="text_m">
-                        Dog that devoted his life to making movies. Loves movies so much he can talk about them 24 hours
-                        a day. A good mentor of leader dog, he will help you immediately if you have a problem.
+                        {t('Dog that devoted his life to making movies. Loves movies so much he can talk about them 24 hours a day. A good mentor of leader dog, he will help you immediately if you have a problem.')}
                       </span>
                     </li>
                   </ul>
