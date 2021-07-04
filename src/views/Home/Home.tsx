@@ -24,6 +24,9 @@ const Container = styled.div`
   width: 1080px;
   margin: 0 auto;
   padding: 62px 0;
+  @media (max-width: 1100px) {
+    width: 94%;
+  }
 
   .flex {
     display: flex;
